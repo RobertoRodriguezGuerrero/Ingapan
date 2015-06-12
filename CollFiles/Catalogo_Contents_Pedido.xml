@@ -1,0 +1,57 @@
+﻿<coll name="Catalogo_Contents_Pedido" title="Articulos_Basic"
+sql="SELECT t1.ID ,t1.DESCRIP,t1.DESCRIP_LARGA,t1.COD||'  '||t1.DESCRIP AS MAP_ARTICULO,'http://212.170.61.117:8080/replicaimages/'||t1.COD||'P.jpg' AS MAP_FOTOP,'http://212.170.61.117:8080/replicaimages/'||t1.COD||'G.jpg' AS MAP_FOTOG    FROM ##PREF##Articulos t1" objname="Articulos" updateobj="Articulos" progid="ASData.CASBasicDataObj" filter="" sort="" cell-border-width="1" cell-selected-border-width="1">
+  <group name="General" id="1" bgcolor="#FFFFFF" align="center"> 
+   <frame name="catalogo" framebox="false" bgcolor="#FFFFFF" align="top|center">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="COD" visible="0" type="T" size="5" width="10%" />
+	<prop name="DESCRIP" visible="0" type="T" size="30" width="30%" />
+	<prop name="MAP_ARTICULO" visible="7" type="T" size="30" fieldsize="40" align="top|center" width="100%" fontsize="10" labelwidth="0" bgcolor="#00000000" text-bgcolor="#00000000" />
+    <prop name="MAP_FOTOP" cache-timeout="999999" type="IMG" align="center" locked="true" class="fotocatalogo" bgcolor="" visible="7" labelwidth="0" />
+   </frame>
+    <prop name="MAP_FOTOG" visible="0" type="D" size="8" />
+	<prop name="F_VIGENCIA" visible="0" type="D" size="8" />
+	<prop name="F_BAJA" visible="0" type="D" size="8" />
+	<prop name="GAUNITIP_UNI1" visible="0" type="T" size="4" />	
+	<prop name="GAUNITIP_UNI2" visible="0" type="T" size="4" />
+	<prop name="GAUNITIP_PR" visible="0" type="T" size="4" />
+	<prop name="GAUNITIP_EXPED" visible="0" type="T" size="4" />	
+	<prop name="FAMILIA" visible="0" type="T" size="40" />
+	<prop name="GAMA" visible="0" type="T" size="40" />
+	<prop name="SUBGAMA" visible="0" type="T" size="40" />	
+	<prop name="MARCA" visible="0" type="T" size="40" />
+	<prop name="UM_CAJA" visible="0" type="N2" size="5" />
+	<prop name="UM_PALET" visible="0" type="N2" size="30" />	
+	<prop name="CAJAS_BASE" visible="0" type="N2" size="8" />
+	<prop name="CAJAS_PALET" visible="0" type="N2" size="8" />
+	<prop name="IMAGEN_PEQ" visible="0" type="T" size="40" />	
+	<prop name="IMAGEN_GRANDE" visible="0" type="T" size="40" />
+	<prop name="DESCRIP_LARGA" visible="0" type="T" size="400" />
+	
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />  
+  </group>
+        <selecteditem show-wait-dialog="false" refresh="false">
+        <action name="runscript">
+          <script language="VBScript">       
+		           if not this.ownercollection.ownerobject is nothing then
+		             this.ownercollection.ownerobject("MAP_IDARTICULOSEL")=this("ID")
+		             this.ownercollection.ownerobject("MAP_ARTICULOSEL")=this("DESCRIP")
+		             this.ownercollection.ownerobject("MAP_ARTICULOSELEDIT")=this("DESCRIP")
+		             this.ownercollection.ownerobject("MAP_FOTOG")=this("MAP_FOTOG")
+		             this.ownercollection.ownerobject("MAP_DESCRIP_LARGA")=this("DESCRIP_LARGA")
+		             this.ownercollection.ownerobject("MAP_UNIDADESSELEDIT")=1
+		             this.ownercollection.ownerobject("MAP_TABPED")=4	
+
+					 ui.refresh "frm_datos_edicion_catalogo"
+					 ui.refresh "frm_barrabotones"  
+					 ui.refresh "frm_Catalogo"
+					 ui.refresh "frm_datos_filtro_catalogo"
+		           end if
+		   </script>
+        </action>
+      </selecteditem>  
+</coll>

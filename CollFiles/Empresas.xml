@@ -1,0 +1,29 @@
+﻿<coll name="Empresas" title="la empresa"
+sql="SELECT t1.*        FROM ##PREF##Empresa t1" shadow="false" objname="Empresa" updateobj="Empresa" progid="ASGestion.CASEmpresa" fontsize="9" nomenmask="8" editwidth="101" editheight="97" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="CODIGO" visible="3" type="T" fieldsize="4" autosearch="true" />
+    <prop name="NOMBRE" visible="3" type="T" fieldsize="4" autosearch="true" />
+     
+  </group>
+  <include file="general.vbs" language="vbscript" />
+  <include file="menu.vbs" language="vbscript" />
+  <include file="agenda.vbs" language="vbscript" />
+  <include file="pedidos.vbs" language="vbscript" />
+  <include file="partes.vbs" language="vbscript" />
+  <include file="estadisticas.vbs" language="vbscript" />
+      <onlogon>
+        <action name="On" type="runscript">
+          <script language="VBScript">
+						CargaOnLogon
+					</script>
+        </action>
+      </onlogon>
+
+<replica-ok-gen_alertas>
+	<action name="runscript">
+		<script language="VBScript">
+			ui.ShowNotification 1, "Aviso", "Tiene nuevas alertas"
+		</script>
+	</action>
+</replica-ok-gen_alertas>
+</coll>

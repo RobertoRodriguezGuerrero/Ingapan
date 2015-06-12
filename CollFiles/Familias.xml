@@ -1,0 +1,7 @@
+﻿<coll name="Familias" title="Familias" stringkey="true" idfieldname="FAMILIA" userawsql="true"
+sql="select distinct(t1.FAMILIA) from gen_articulos t1 " objname="Articulos" updateobj="Articulos" progid="ASData.CASBasicDataObj" filter="t1.FAMILIA is not null" sort="t1.FAMILIA ASC">
+  <group name="General" id="1">
+   
+    <prop name="FAMILIA" visible="7" type="T" size="30" width="100%" labelwidth="0" qualifier="t1.FAMILIA" />    
+  </group>
+</coll>

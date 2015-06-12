@@ -1,0 +1,7 @@
+﻿<coll name="Gamas" title="Gamas" stringkey="true" idfieldname="GAMA"
+sql="select distinct(t1.GAMA)  from gen_articulos t1 " objname="Articulos" updateobj="Articulos" progid="ASData.CASBasicDataObj" filter="t1.GAMA is not null" sort="t1.GAMA ASC">
+  <group name="General" id="1">
+  
+    <prop name="GAMA" visible="7" type="T" size="30" width="100%" labelwidth="0" qualifier="t1.GAMA" />    
+  </group>
+</coll>

@@ -1,0 +1,38 @@
+﻿<coll name="Alertas_Contents" title="Alertas_Basic"
+sql="SELECT t1.*,t2.NOMBRE AS MAP_CLIENTE,t3.DESCRIP AS MAP_TIPOALERTA     FROM ##PREF##Alertas t1   left outer join ##PREF##Clientes t2 ON t1.IDCLIENTE=t2.ID   left outer join ##PREF##TiposAlerta t3 ON t1.IDTIPOALERTA=t3.ID" objname="Alertas" updateobj="Alertas" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDUSUARIO" visible="0" type="N" size="8" />
+	<prop name="IDCLIENTE" visible="0" type="N" size="8" />	
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+ 	
+	<prop name="FECHA_CIERRE" visible="0" type="D" size="8" /> 	
+
+	<prop name="TYPE" visible="0" type="N" size="8" />
+
+    <prop name="MAP_TIPOALERTA" visible="7" type="D" size="8" width="20%" labelwidth="0" title=":" /> 	
+	<prop name="MAP_CLIENTE" visible="7" type="D" size="8" width="35%" labelwidth="0" newline="false" title="" /> 	
+    <prop name="F_DESDE" visible="7" type="D" size="8" width="20%" labelwidth="0" newline="false" title="Fecha Desde:" /> 	
+	<prop name="F_HASTA" visible="7" type="D" size="8" width="20%" labelwidth="0" newline="false" title="Fecha Hasta:" /> 	
+	<prop name="CERRADA_SN" visible="7" type="NC" size="8" width="5%" labelwidth="0" newline="false" title="Cerrada" />
+	<prop name="COMENTARIO" visible="7" type="T" size="400" width="100%" title="Comentario" labelwidth="8" />
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />      
+  </group>
+        <selecteditem show-wait-dialog="false" refresh-owner="MAP_COMENTARIOSEL,MAP_CERRADASEL,MAP_IDALERTASEL">
+        <action name="runscript">
+          <script language="VBScript">  
+		         if not this.ownercollection.ownerobject is nothing then
+ 
+		           this.OwnerCollection.ownerobject("MAP_COMENTARIOSEL")=this("COMENTARIO")
+		           this.OwnerCollection.ownerobject("MAP_CERRADASEL")=this("CERRADA_SN")
+		           this.OwnerCollection.ownerobject("MAP_IDALERTASEL")=this("ID")
+		         end if
+		           
+		   </script>
+        </action>
+      </selecteditem>    
+</coll>

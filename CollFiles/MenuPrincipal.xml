@@ -1,0 +1,488 @@
+﻿<coll name="MenuPrincipal" title="el MenuPrincipal"
+sql="SELECT t1.ID, from gen_empresa" special="true" progid="ASGestion.CASUser" fixed-group="0">
+
+	<group name="fixed" fixed="true" id="0" width="100%" height="16%" orientation="bottom">
+	    <!-- ## Frame barra de botones de menu ## -->
+        <frame name="frm_barrabotones" width="100%" height="63%" scroll="false" bgcolor="#fefefe,#bbbcbe" align="center" framebox="true" border-width="3" xforecolor="#ffda6b">
+          <prop name="MAP_BT1" visible="1" type="B" class="botonmenu" icon="##FLD_MAP_BTIMG1##" align="center" refresh="false" onchange="refresh" method="Executenode(menu(1))" />
+          <prop name="MAP_BT2" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="##FLD_MAP_BTIMG2##" refresh="false" onchange="refresh" method="Executenode(menu(2))" />
+          <prop name="MAP_BT3" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="##FLD_MAP_BTIMG3##" refresh="false" onchange="refresh" method="Executenode(menu(3))" />
+          <prop name="MAP_BT4" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="##FLD_MAP_BTIMG4##" refresh="false" onchange="refresh" method="Executenode(menu(4))" />
+          <prop name="MAP_BT5" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="##FLD_MAP_BTIMG5##" refresh="false" onchange="refresh" method="Executenode(menu(5))" />
+          <prop name="MAP_BT6" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="##FLD_MAP_BTIMG6##" refresh="false" onchange="refresh" method="Executenode(menu(6))" />
+          <prop name="MAP_BT7" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="##FLD_MAP_BTIMG7##" refresh="false" onchange="refresh" method="Executenode(menu(7))" />
+          <prop name="MAP_BT8" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="##FLD_MAP_BTIMG8##" refresh="false" onchange="refresh" method="Executenode(menu(8))" />
+          <prop name="MAP_LBBT1" visible="1" type="TL" class="labelbotonmenu" title="Agenda" align="center" />
+          <prop name="MAP_LBBT2" visible="1" type="TL" class="labelbotonmenu" title="Clientes" align="center" lmargin="2" newline="false" />
+          <prop name="MAP_LBBT3" visible="1" type="TL" class="labelbotonmenu" title="Estadist." align="center" lmargin="2" newline="false" />
+          <prop name="MAP_LBBT4" visible="1" type="TL" class="labelbotonmenu" title="Pedidos" align="center" lmargin="2" newline="false" />
+          <prop name="MAP_LBBT5" visible="1" type="TL" class="labelbotonmenu" title="Partes" align="center" lmargin="2" newline="false" />
+          <prop name="MAP_LBBT6" visible="1" type="TL" class="labelbotonmenu" title="Docs." align="center" lmargin="2" newline="false" />
+          <prop name="MAP_LBBT7" visible="1" type="TL" class="labelbotonmenu" title="Alertas" align="center" lmargin="2" newline="false" />
+          <prop name="MAP_LBBT8" visible="1" type="TL" class="labelbotonmenu" title="Conect." align="center" lmargin="2" newline="false" />
+
+		  <prop name="MAP_BTIMG1" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMG2" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMG3" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMG4" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMG5" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMG6" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMG7" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMG8" visible="0" type="T" group="1" />          
+          <prop name="MAP_BUTTONSELECT" visible="0" type="N" />
+		</frame>
+		<!-- ## Frame Barra de esatdo ## -->
+        <frame name="frm_barraestado" width="100%" height="38%" scroll="false" bgcolor="#05264e" align="right" orientation="bottom">
+          <prop name="MAP_DATOSESTADO" visible="0" type="T" />
+          <prop name="MAP_LBESTADO" visible="1" type="TL" class="labelestado" title="##FLD_MAP_DATOSESTADO##" tmargin="2" />
+  		  <prop type="B" visible="1" class="boton3" name="exit" img="bt-exit-white.png" newline="false" bgcolor="#009933" onchange="Refresh255" lmargin="1" method="ExecuteNode (exit)" width="4%" />          
+        </frame>
+     </group>
+     <prop name="MAP_TAB" type="N" visible="0" />
+<!-- ##### GRUPO SIN MENU ##### -->     
+     <group name="menu99" id="99" disablevisible="MAP_TAB&lt;&gt;99">
+        <!-- ## Frame Cabecera ## -->
+        <frame name="frm_cabecera99" width="100%" height="8%" scroll="false" orientation="top" bgcolor="#094c9b,#05264e">
+          <prop name="MAP_ICON99" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" />
+          <prop name="MAP_CABECERA99" visible="1" type="TL" class="labelcab" title="INGAPAN Mobile CRM" />
+        </frame>
+        <!-- ## Frame de datos vacio con fondo ## -->
+        <frame name="frm_datos" width="100%" height="92%" scroll="false" imgbk="fondo.jpg">
+          <prop name="MAP_BOTONFALSO" visible="1" type="B" width="1%" height="1%" bgcolor="#00000000" forecolor="#00000000" />
+        </frame>
+     </group>
+     
+<!-- ##### GRUPO BOTON 1. AGENDA ##### --> 
+	<group name="frm_menu1" id="1" disablevisible="MAP_TAB&lt;&gt;1">
+	  <!-- ## Frame Cabecera ## -->
+      <frame name="cabecera1" width="100%" height="8%" scroll="false" orientation="top" bgcolor="#094c9b,#05264e">
+        <prop name="MAP_ICON1" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" />
+        <prop name="MAP_CABECERA1" visible="1" type="TL" class="labelcab" title="INGAPAN Mobile CRM -  AGENDA" />
+      </frame>	
+      <!-- ## Frame con botones e informacion de calendario ## -->
+      <frame name="frm_LabelCalendario" height="10%" width="100%" align="center" framebox="true">
+        <prop type="B" name="MAP_CAMBIARCALENDARMODE" method="ExecuteNode(Calendar_Mode)" title=" " visible="1" class="boton3" img="bt-calendar-black.png" imgsel="bt-calendar-grey.png" onchange="refresh255" />
+        <prop type="B" name="MAP_NUEVOEVENTOAGENDA" method="ExecuteNode(Calendar_Nuevo)" lmargin="2" title=" " newline="false" visible="1" class="boton3" img="bt-mas-black.png" imgsel="bt-mas-grey.png" postonchange="refresh" />
+        <prop type="B" name="MAP_BT_PREVIOUS_DATE" method="ExecuteNode(Calendar_MesAnterior)" title=" " newline="false" lmargin="14" visible="1" class="boton3" img="bt-left-grey.png" imgsel="bt-left-white.png" />
+        <prop type="T" name="MAP_TITLE_NAMES_MES" newline="false" locked="true" text-border="false" align="center" visible="1" width="20%" labelwidth="0" fontbold="true" bgcolor="#00000000" text-bgcolor="#00000000" text-bgcolor-disabled="#00000000" text-forecolor="#FF232E5C" fontsize="12" />
+        <prop type="T" name="MAP_TITLE_NAMES_ANO" newline="false" locked="true" text-border="false" align="center" visible="1" width="20%" labelwidth="0" fontbold="true" bgcolor="#00000000" text-bgcolor="#00000000" text-bgcolor-disabled="#00000000" text-forecolor="#FF232E5C" fontsize="12" />
+        <prop type="B" name="MAP_BT_NEXT_DATE" method="ExecuteNode(Calendar_MesSiguiente)" title=" " newline="false" visible="1" class="boton3" img="bt-right-grey.png" imgsel="bt-right-white.png" />
+	  </frame>
+ 	  <prop name="MAP_FECHACALENDAR" type="D" visible="0" />        
+      <prop name="MAP_CALENDARMODE" type="N" visible="0" />
+      <!-- ## Frame Calendario Calendar MES ## -->
+      <frame name="frm_Calendario_Calendar_Mes" height="82%" width="60%" align="center|top" disablevisible="MAP_CALENDARMODE=2">
+		 <prop name="Agenda_Menu_Calendario_Mes" labelwidth="0" width="100%" height="100%" type="Z" class="z_calendario" visible="1" contents="Agenda_Menu_Calendario_Mes" viewmode="calendarview" />
+          <contents name="Agenda_Menu_Calendario_Mes" src="Agenda_Menu_Calendario" filter="(t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+	  </frame>
+	  <!-- ## Frame Calendario Lista MES ## -->
+      <frame name="frm_Calendario_Lista_Mes" height="82%" width="40%" align="center|top" newline="false" disablevisible="MAP_CALENDARMODE=2">
+		 <prop name="Agenda_Menu_Lista_Mes" labelwidth="0" width="100%" height="100%" type="Z" class="z_contents" newline="false" visible="1" contents="Agenda_Menu_Lista_Mes" postonchange="refresh" />
+          <contents name="Agenda_Menu_Lista_Mes" src="Agenda_Menu_Lista" filter="date(t1.FECHA_VISITA)=date(##FLD_MAP_FECHACALENDAR##) and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+      </frame> 
+	  <!-- ## Frame Calendario Calendar SEMANA ## -->      
+	  <frame name="frm_Calendario_Calendar_Semana" height="82%" width="60%" align="center|top" disablevisible="MAP_CALENDARMODE=1" newline="true">
+		 <prop name="Agenda_Menu_Calendario_Semana" labelwidth="0" width="100%" height="100%" type="Z" class="z_calendario_week" visible="1" contents="Agenda_Menu_Calendario_Semana" viewmode="calendarview" calendar-viewmode="week" />
+          <contents name="Agenda_Menu_Calendario_Semana" src="Agenda_Menu_Calendario" filter="(t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+	  </frame>
+	  <!-- ## Frame Calendario Lista SEMANA ## --> 
+      <frame name="frm_Calendario_Lista_Semana" height="82%" width="40%" align="center|top" newline="false" disablevisible="MAP_CALENDARMODE=1">
+		 <prop name="Agenda_Menu_Lista_Semana" labelwidth="0" width="100%" height="100%" type="Z" class="z_contents" newline="false" visible="1" contents="Agenda_Menu_Lista_Semana" postonchange="refresh" />
+          <contents name="Agenda_Menu_Lista_Semana" src="Agenda_Menu_Lista" filter="date(t1.FECHA_VISITA)=date(##FLD_MAP_FECHACALENDAR##) and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+      </frame>      
+     </group>
+
+<!-- ##### GRUPO BOTON 2. CLIENTES ##### --> 
+     <group name="SeleccionCliente" id="2" disablevisible="MAP_TAB&lt;&gt;2">
+     <!-- ## Frame Cabecera ## --> 
+       <frame name="cabecera2" width="100%" height="8%" scroll="false" orientation="top" bgcolor="#094c9b,#05264e">
+            <prop name="MAP_ICON2" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" />
+            <prop name="MAP_CABECERA2" visible="1" type="TL" class="labelcab" title="INGAPAN Mobile CRM -  CLIENTES" />
+       </frame>
+        <!-- ## Frame Filtro de clientes ## --> 
+        <frame name="frm_datos_filtro_cliente" width="100%" height="20%" scroll="false">
+            <prop name="MAP_LBCLIENTESFILTRAR" visible="1" type="TL" class="label2" width="25%" title="Datos Filtro" tmargin="1" />
+         	<prop name="MAP_NOMBRECLIENTE" visible="1" type="T" size="40" width="35%" tooltip="Nombre" labelwidth="0" tmargin="2" lmargin="1" />
+         	<prop name="MAP_CODIGOCLIENTE" visible="1" type="T" newline="false" size="40" width="20%" tooltip="Codigo" labelwidth="0" tmargin="2" lmargin="1" />
+         	<prop name="MAP_POBLACIONCLIENTE" visible="1" type="T" newline="false" size="40" width="33%" tooltip="Poblacion" labelwidth="0" tmargin="2" lmargin="1" />
+            <prop name="MAP_FILTRARCLIENTES" visible="1" type="B" class="botonmenu" newline="false" lmargin="1" tmargin="1" icon="bt-find-black.png" onchange="refresh" method="Executenode(filtrarclientes)" title="" />          
+
+		</frame>
+		<!-- ## Frame Contents de Clientes ## --> 
+        <frame name="frm_listadoClienes" height="72%" width="100%">
+          <prop name="MAP_LBCLIENTESCONTENTS" visible="1" type="TL" class="label2" width="25%" title="Clientes" tmargin="2" />
+		  <prop name="Clientes_Contents" labelwidth="0" width="100%" height="90%" type="Z" class="z_contents" visible="1" contents="Clientes_Contents" />
+          <contents name="Clientes_Contents" src="Clientes_Contents2" filter="(t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+        </frame>      
+     </group>
+     
+<!-- ##### GRUPO BOTON 3. ESTADISTICAS ##### -->  
+     <group name="SeleccEstadisticas" id="3" disablevisible="MAP_TAB&lt;&gt;3">
+     
+     <!-- ## Frame Cabecera ## --> 
+       <frame name="cabecera3" width="100%" height="8%" scroll="false" orientation="top" bgcolor="#094c9b,#05264e">
+            <prop name="MAP_ICON3" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" />
+            <prop name="MAP_CABECERA3" visible="1" type="TL" class="labelcab" title="INGAPAN Mobile CRM -  ESTADISTICAS" width="94%" />
+       </frame>     
+       <prop name="MAP_TABESTADISTICAS" type="N" visible="0" />
+        <!-- ## Frame Datos de estadisticas## -->  
+        <frame name="frm_pestanas_estadisticas" width="100%" height="9%" scroll="false" bgcolor="#ffda6b" framebox="true" border-width="3" align="center">
+
+		  <prop name="MAP_BTGROUPEST1" visible="1" type="B" class="botongrupo" bgcolor="##FLD_MAP_BTIMGEST1##" caption="Estadisticas" onchange="refresh" method="Executenode(menuestadisticas(1))" title="" />
+          <prop name="MAP_BTGROUPEST2" visible="1" type="B" class="botongrupo" newline="false" lmargin="1" bgcolor="##FLD_MAP_BTIMGEST2##" caption="Maquinaria" onchange="refresh" method="Executenode(menuestadisticas(2))" title="" />
+          <prop name="MAP_BTGROUPEST3" visible="1" type="B" class="botongrupo" newline="false" lmargin="1" bgcolor="##FLD_MAP_BTIMGEST3##" caption="QLikView" onchange="refresh" method="Executenode(menuestadisticas(3))" title="" />
+          <prop name="MAP_BTIMGEST1" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMGEST2" visible="0" type="T" group="1" />    
+          <prop name="MAP_BTIMGEST3" visible="0" type="T" group="1" />   
+		</frame>
+        <!-- ## Frame Listado Estadisticas# -->  
+        <frame name="frm_contents_estadisticas" height="82%" width="100%" disablevisible="MAP_TABESTADISTICAS&lt;&gt;1">
+		  <prop name="Estadisticas_Contents" labelwidth="0" width="100%" height="100%" type="Z" class="z_contents" visible="1" contents="Estadisticas_Contents" />
+          <contents name="Estadisticas_Contents" src="Estadisticas_Contents2" filter="t1.GGALBTIP_COD &lt;&gt; 'MQ' and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+        </frame> 
+        <!-- ## Frame Listado Estadisticas# -->  
+        <frame name="frm_contents_estadisticas2" height="82%" width="100%" disablevisible="MAP_TABESTADISTICAS&lt;&gt;2">
+		  <prop name="Estadisticas_Contents2" labelwidth="0" width="100%" height="100%" type="Z" class="z_contents" visible="1" contents="Estadisticas_Contents2" />
+          <contents name="Estadisticas_Contents2" src="Estadisticas_Contents2" filter="t1.GGALBTIP_COD = 'MQ' and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+        </frame>         
+		<!-- ## Frame QLikView Estadisticas## -->  
+        <frame name="frm_qlikview_estadisticas" height="82%" width="100%" disablevisible="MAP_TABESTADISTICAS&lt;&gt;3">
+          <prop name="MAP_LIKVIEWESTADISTICAS" visible="1" class="html" type="WEB" webview-username="##FLD_MAP_USERWEB##" webview-password="##FLD_MAP_PWDWEB##" width="100%" height="100%" scroll="false" />
+          <prop name="MAP_USERWEB" visible="0" type="T" group="1" />
+          <prop name="MAP_PWDWEB" visible="0" type="T" group="1" />
+		</frame>          
+     </group>
+<!-- ##### GRUPO BOTON 4. PEDIDOS ##### -->  
+     <group name="Pedidos" id="4" disablevisible="MAP_TAB&lt;&gt;4">    
+        <!-- ## Se abre una nueva coleccion Pedidos_Menu## -->                       
+     </group>
+<!-- ##### GRUPO BOTON 5. PARTES ##### -->  
+     <group name="Partes" id="5" disablevisible="MAP_TAB&lt;&gt;5">    
+        <!-- ## Se abre una nueva coleccion Partes_Menu## -->                       
+     </group>
+<!-- ##### GRUPO BOTON 6. DOCUMENTOS ##### -->  
+     <group name="SeleccDocumentos" id="6" disablevisible="MAP_TAB&lt;&gt;6">
+     <!-- ## Frame Cabecera ## --> 
+       <frame name="cabecera6" width="100%" height="8%" scroll="false" orientation="top" bgcolor="#094c9b,#05264e">
+            <prop name="MAP_ICON6" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" />
+            <prop name="MAP_CABECERA6" visible="1" type="TL" class="labelcab" title="INGAPAN Mobile CRM -  DOCUMENTOS" />
+       </frame>     
+        <!-- ## Frame Datos de documentops## -->  
+        <frame name="frm_pestanas_documentos" width="100%" height="9%" scroll="false" bgcolor="#ffda6b" framebox="true" border-width="3" align="center">
+          <prop name="MAP_TABDOCUMENTOS" type="N" visible="0" />
+		  <prop name="MAP_BTGROUPDOC1" visible="1" type="B" class="botongrupo" bgcolor="##FLD_MAP_BTIMGDOC1##" caption="Presentaciones" onchange="refresh" method="Executenode(menudocumentos(1))" title="" />
+          <prop name="MAP_BTGROUPDOC2" visible="1" type="B" class="botongrupo" newline="false" lmargin="1" bgcolor="##FLD_MAP_BTIMGDOC2##" caption="Catalogos" onchange="refresh" method="Executenode(menudocumentos(2))" title="" />
+          <prop name="MAP_BTGROUPDOC3" visible="1" type="B" class="botongrupo" newline="false" lmargin="1" bgcolor="##FLD_MAP_BTIMGDOC3##" caption="Kits" onchange="refresh" method="Executenode(menudocumentos(3))" title="" />
+          <prop name="MAP_BTGROUPDOC4" visible="1" type="B" class="botongrupo" newline="false" lmargin="1" bgcolor="##FLD_MAP_BTIMGDOC4##" caption="Tarifas" onchange="refresh" method="Executenode(menudocumentos(4))" title="" />
+          <prop name="MAP_BTIMGDOC1" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMGDOC2" visible="0" type="T" group="1" />     
+          <prop name="MAP_BTIMGDOC3" visible="0" type="T" group="1" />     
+          <prop name="MAP_BTIMGDOC4" visible="0" type="T" group="1" />     
+		</frame>
+        <!-- ## Frame Listado Documentos 1# -->  
+        <frame name="frm_contents_documentos1" height="83%" width="100%" disablevisible="MAP_TABDOCUMENTOS&lt;&gt;1">
+		  <prop name="Documentos_Contents1" labelwidth="0" width="100%" height="100%" type="Z" class="z_contents" visible="1" contents="Documentos_Contents1" />
+          <contents name="Documentos_Contents1" src="Documentos_Contents" filter="t2.COD='PRE' and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+        </frame> 
+        <!-- ## Frame Listado Documentos 2# -->  
+        <frame name="frm_contents_documentos2" height="83%" width="100%" disablevisible="MAP_TABDOCUMENTOS&lt;&gt;2">
+		  <prop name="Documentos_Contents2" labelwidth="0" width="100%" height="100%" type="Z" class="z_contents" visible="1" contents="Documentos_Contents2" />
+          <contents name="Documentos_Contents2" src="Documentos_Contents" filter="t2.COD='CAT' and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+        </frame>          
+        <!-- ## Frame Listado Documentos 3# -->  
+        <frame name="frm_contents_documentos3" height="83%" width="100%" disablevisible="MAP_TABDOCUMENTOS&lt;&gt;3">
+		  <prop name="Documentos_Contents3" labelwidth="0" width="100%" height="100%" type="Z" class="z_contents" visible="1" contents="Documentos_Contents3" />
+          <contents name="Documentos_Contents3" src="Documentos_Contents" filter="t2.COD='KIT' and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+        </frame> 
+                <!-- ## Frame Listado Documentos 4# -->  
+        <frame name="frm_contents_documentos4" height="83%" width="100%" disablevisible="MAP_TABDOCUMENTOS&lt;&gt;4">
+		  <prop name="Documentos_Contents4" labelwidth="0" width="100%" height="100%" type="Z" class="z_contents" visible="1" contents="Documentos_Contents4" />
+          <contents name="Documentos_Contents4" src="Documentos_Contents" filter="t2.COD='TAR' and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+        </frame> 
+     </group>
+
+<!-- ##### GRUPO BOTON 7. ALERTAS ##### --> 
+     <group name="SeleccionAlerta" id="7" disablevisible="MAP_TAB&lt;&gt;7">
+     <!-- ## Frame Cabecera ## --> 
+       <frame name="cabecera7" width="100%" height="8%" scroll="false" orientation="top" bgcolor="#094c9b,#05264e">
+            <prop name="MAP_ICON7" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" />
+            <prop name="MAP_CABECERA7" visible="1" type="TL" class="labelcab" title="INGAPAN Mobile CRM -  ALERTAS" />
+       </frame>
+        <!-- ## Frame Filtro de clientes ## --> 
+        <frame name="frm_datos_filtro_Alertas" width="100%" height="30%" scroll="false">
+            <prop name="MAP_LBALERTASFILTRAR" visible="1" type="TL" class="label2" width="30%" title="Datos Filtro" tmargin="1" />
+	        <prop name="MAP_IDTIPOALERTA" visible="0" type="N" size="8" mapcol="TiposAlerta_Basic" mapfld="ID" onchange="refresh255" />
+		    <prop name="MAP_TIPOALERTA" visible="1" type="T" linkedto="MAP_IDTIPOALERTA" linkedfield="DESCRIP" size="40" width="25%" title="Tipo: " labelwidth="3" tmargin="2" />
+            <prop name="MAP_BT_LIMPIAR" visible="1" type="B" newline="false" class="boton2" icon="bt-x-black.png" onchange="refresh" method="Executenode(limpiartipoalerta)" title="" tmargin="2" lmargin="0" />
+			<prop name="MAP_FECHADESDE" visible="1" type="D" newline="false" size="40" width="15%" tooltip="Desde" labelwidth="0" tmargin="2" lmargin="1" />
+         	<prop name="MAP_FECHAHASTA" visible="1" type="D" newline="false" size="40" width="15%" tooltip="Hasta" labelwidth="0" tmargin="2" lmargin="1" />
+         	<prop name="MAP_COMENTARIO" visible="1" type="T" newline="false" size="40" width="20%" tooltip="Comentario" labelwidth="0" tmargin="2" lmargin="0" />
+            <prop name="MAP_LBCERRADAS" visible="1" type="TL" class="label2" width="8%" title="Cerradas" tmargin="2" newline="false" />
+         	<prop name="MAP_CERRADA" visible="1" type="NC" newline="false" size="40" title=" " labelwidth="0" tmargin="1" lmargin="0" />
+            <prop name="MAP_FILTRARALERTAS" visible="1" type="B" class="botonmenu" newline="false" lmargin="1" tmargin="1" icon="bt-find-black.png" onchange="refresh" method="Executenode(filtraralertas)" title="" />          
+            <prop name="MAP_LBALERTASEL" visible="1" type="TL" class="label2" width="25%" title="Alerta Seleccionada" tmargin="1" />
+         	<prop name="MAP_COMENTARIOSEL" visible="1" type="T" size="40" width="80%" tooltip="Comentario Alerta Seleccionada" labelwidth="0" tmargin="2" lmargin="1" />
+            <prop name="MAP_BT_CERRARSEL" visible="1" type="B" newline="false" class="boton2" icon="bt-okbox-black.png" onchange="refresh" method="Executenode(cerraralerta)" title="" tmargin="1" lmargin="1" />
+         	<prop name="MAP_CERRADASEL" visible="0" type="N" />
+         	<prop name="MAP_IDALERTASEL" visible="0" type="N" />
+
+		</frame> 
+		<!-- ## Frame Contents de Clientes ## --> 
+        <frame name="frm_listadoAlertas" height="62%" width="100%">
+		  <prop name="MAP_LBALERTASCONTENTS1" visible="1" type="TL" class="label2" width="20%" title=" Tipo Alerta" tmargin="2" />
+          <prop name="MAP_LBALERTASCONTENTS2" visible="1" type="TL" newline="false" class="label2" width="35%" title="  Cliente" tmargin="2" />
+          <prop name="MAP_LBALERTASCONTENTS3" visible="1" type="TL" newline="false" class="label2" width="20%" title="  F. Desde" tmargin="2" />
+          <prop name="MAP_LBALERTASCONTENTS4" visible="1" type="TL" newline="false" class="label2" width="20%" title="  F. Hasta" tmargin="2" />
+          <prop name="MAP_LBALERTASCONTENTS5" visible="1" type="TL" newline="false" class="label2" width="5%" title="    C" tmargin="2" />
+		  <prop name="Alertas_Contents" labelwidth="0" width="100%" height="90%" type="Z" class="z_contents" visible="1" contents="Alertas_Contents" />
+          <contents name="Alertas_Contents" src="Alertas_Contents" filter="t1.CERRADA_SN=0" />
+        </frame>      
+</group>
+
+<!-- ##### GRUPO BOTON 8. COMUNICACIONES ##### --> 
+     <group name="Comunicaciones" id="8" disablevisible="MAP_TAB&lt;&gt;8">
+     <!-- ## Frame Cabecera ## --> 
+       <frame name="cabecera8" width="100%" height="8%" scroll="false" orientation="top" bgcolor="#094c9b,#05264e">
+            <prop name="MAP_ICON8" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" />
+            <prop name="MAP_CABECERA8" visible="1" type="TL" class="labelcab" title="INGAPAN Mobile CRM -  COMUNICACIONES" />
+       </frame>
+        <!-- ## Frame comunicaciones_datos ## --> 
+        <frame name="frm_datos_comunicaciones_datos" width="50%" height="92%" scroll="false" framebox="true" border-width="2">
+            <prop name="MAP_LBINFORMACIONREPLICA" visible="1" type="TL" class="label2" align="left" width="100%" title="Gestion Replica Datos" tmargin="1" />
+
+			<prop name="MAP_BTSINCRONIZAR" visible="1" type="B" class="botonmenureplica" tmargin="3" lmargin="4" icon="bt-replica-black.png" onchange="refresh" method="Executenode(sincronizar)" title="" />          
+            <prop name="MAP_BTENVIOLOGS" visible="1" type="B" class="botonmenureplica" newline="false" tmargin="1" lmargin="6" icon="bt-subir-black.png" onchange="refresh" method="Executenode(enviologs)" title="" />          
+            <prop name="MAP_BTREFRESCAR" visible="1" type="B" class="botonmenureplica" newline="false" tmargin="1" lmargin="6" icon="bt-sinc-black.png" onchange="refresh" method="Executenode(refreshreplica)" title="" />          
+          	<prop name="MAP_LBSINCRONIZAR" visible="1" type="TL" class="labelbotonmenureplica" title="Sincronizar" align="center" lmargin="4" />
+          	<prop name="MAP_LBENVIOLOGS" visible="1" type="TL" class="labelbotonmenureplica" title="Enviar Logs" align="center" lmargin="6" newline="false" />
+          	<prop name="MAP_LBREFRESCAR" visible="1" type="TL" class="labelbotonmenureplica" title="Refresh Info." align="center" lmargin="6" newline="false" />
+
+      		<prop name="MAP_RECORDSRX" title="Operaciones Recibidas" fontsize="12" tmargin="2" type="T" labelwidth="15" visible="15" locked="true" width="95%" />
+      		<prop name="MAP_RECORDSTX" title="Operaciones Enviadas" fontsize="12" tmargin="1" type="T" labelwidth="15" visible="15" locked="true" width="95%" />
+      		<prop name="MAP_RECORDSPEND" title="Operaciones Pendientes" fontsize="12" tmargin="1" type="T" labelwidth="15" visible="15" locked="true" width="95%" />
+            <prop name="MAP_LBINFORMACIONREPLICALOG" visible="1" type="TL" class="label2" fontsize="12" align="left" width="80%" title="Log Comunicaciones" tmargin="2" />
+			<prop name="MAP_LOG" title="Log" type="T" fontsize="8" labelwidth="0" visible="1" locked="true" lines="5" fixed-lines="true" width="95%" />
+
+		</frame>    
+		        <!-- ## Frame comunicaciones_ficheros ## --> 
+        <frame name="frm_datos_comunicaciones_ficheros" width="50%" height="92%" scroll="false" framebox="true" border-width="2" newline="false">
+            <prop name="MAP_LBINFORMACIONREPLICAFICH" visible="1" type="TL" class="label2" align="left" width="100%" title="Gestion Replica Ficheros" tmargin="1" />
+			<prop name="MAP_BTDESCARGAIMAGENES" visible="1" type="B" class="botonmenureplica" tmargin="3" lmargin="4" icon="bt-descargaimg-black.png" onchange="refresh" method="Executenode(descarga_imagenes)" title="" />          
+            <prop name="MAP_BTDESCARGADOCS" visible="1" type="B" class="botonmenureplica" newline="false" tmargin="1" lmargin="6" icon="bt-descarga2-black.png" onchange="refresh" method="Executenode(descarga_docs)" title="" />          
+            <prop name="MAP_BTDESCARGAADJUNTOS" visible="1" type="B" class="botonmenureplica" newline="false" tmargin="1" lmargin="6" icon="bt-descargaadjuntos-black.png" onchange="refresh" method="Executenode(descarga_adjuntos)" title="" />          
+          	<prop name="MAP_LBDESCARGAIMAGENES" visible="1" type="TL" class="labelbotonmenureplica" title="Dsc.Imgs." align="center" lmargin="4" />
+          	<prop name="MAP_LBDESCARGADOCS" visible="1" type="TL" class="labelbotonmenureplica" title="Dsc.Docs" align="center" lmargin="6" newline="false" />
+          	<prop name="MAP_LBDESCARGAADJUNTOS" visible="1" type="TL" class="labelbotonmenureplica" title="Dsc.Adjuntos" align="center" lmargin="6" newline="false" />
+      		<prop name="MAP_FICHEROSXENVIAR" title="Ficheros Pendientes Envio" fontsize="12" tmargin="5" type="T" labelwidth="15" visible="15" locked="true" width="95%" />
+		</frame>  
+     </group>
+      <create>
+        <action name="runscript">
+          <script language="VBScript">   
+				CreateMenuPrincipal
+				this("MAP_USERWEB")=appdata.CurrentEnterprise.variables("QL_USERNAME")
+	            this("MAP_PWDWEB")=appdata.CurrentEnterprise.variables("QL_PASSWD")
+	            this("MAP_LIKVIEWESTADISTICAS")=""
+          </script>
+        </action>
+      </create>
+      <menu0>
+        <action name="runscript">
+          <param name="nmenu" />
+          <script language="VBScript">
+          			this("MAP_LIKVIEWESTADISTICAS")=""
+                    LB_ShowGroup 99
+                  </script>
+        </action>
+      </menu0>      
+      <menu show-wait-dialog="false">
+        <action name="runscript">
+          <param name="nmenu" />
+          <script language="VBScript">
+         
+                    'Cargamos menu seleccionado
+                    this("MAP_LIKVIEWESTADISTICAS")=""
+      				this("MAP_BUTTONSELECT")=nmenu
+      				CargarIconosMenu nmenu
+      				CargarMenu nmenu
+                  </script>
+        </action>
+      </menu>
+ 
+      <menuestadisticas show-wait-dialog="false">
+        <action name="runscript">
+          <param name="nmenu" />
+          <script language="VBScript">
+          			this("MAP_LIKVIEWESTADISTICAS")=""
+                   'Seleccion de pestaña virtual de menu estadisticas
+      				CargarIconosEstadisticas nmenu
+      				CargarGruposEstadisticas nmenu
+                  </script>
+        </action>
+      </menuestadisticas>   
+      <menudocumentos show-wait-dialog="false">
+        <action name="runscript">
+          <param name="nmenu" />
+          <script language="VBScript">
+          			this("MAP_LIKVIEWESTADISTICAS")=""
+                   'Seleccion de pestaña virtual de menu documentos
+      				CargarIconosDocumentos nmenu
+      				CargarGruposDocumentos nmenu
+                  </script>
+        </action>
+      </menudocumentos>         
+      <onback show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		this("MAP_LIKVIEWESTADISTICAS")=""
+      		</script>
+        </action>
+      </onback>     
+      <exit show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		    if LB_MsgYesNo ("Desea cerrar la aplicación?") then
+	          			appdata.failwithmessage -11888,"##EXITAPP##"
+	          	    end if
+      		</script>
+        </action>
+      </exit> 
+      <Calendar_MesAnterior show-wait-dialog="false">
+        <action name="runscript">          
+          <script language="VBScript">
+          				'Retrasamos calendarios de agenda
+          				this.Contents("Agenda_Menu_Calendario_Mes").variables("moveto")="prev"
+          				this.Contents("Agenda_Menu_Calendario_Semana").variables("moveto")="prev"
+		  </script>
+        </action>
+      </Calendar_MesAnterior>
+      <Calendar_MesSiguiente show-wait-dialog="false">
+        <action name="runscript">        
+          <script language="VBScript">
+          				'Adelantamos calendarios de agenda
+          				this.Contents("Agenda_Menu_Calendario_Mes").variables("moveto")="next"
+						this.Contents("Agenda_Menu_Calendario_Semana").variables("moveto")="next"
+		  </script>
+        </action>
+      </Calendar_MesSiguiente>    
+      <Calendar_Mode show-wait-dialog="false" refresh-props="Agenda_Menu_Calendario_Mes,Agenda_Menu_Calendario_Semana">
+        <action name="runscript">        
+          <script language="VBScript">    
+					' Cambiamos el modo del calendario (mostrando un contents y otro)          
+					  CambiarModoCalendario
+		  </script>
+        </action>
+      </Calendar_Mode> 
+       
+      <Calendar_Nuevo show-wait-dialog="false">
+        <action name="runscript">        
+          <script language="VBScript">
+          			'Creamos nuevo registro de agenda
+					NuevaAgenda
+		  </script>
+        </action>
+      </Calendar_Nuevo>  
+
+      <filtrarclientes show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		'Aplicamos filtro a menu de clientes
+          		FiltrarContents "t1.COD like '%"+cstr(this("MAP_CODIGOCLIENTE"))+"%' and t1.NOMBRE like '%"+cstr(this("MAP_NOMBRECLIENTE"))+"%' and (select count(d.ID) from gen_direcciones d where d.IDRAZONSOCIAL=t1.IDRAZONSOCIAL AND d.POBLACION like '%"+cstr(this("MAP_POBLACIONCLIENTE"))+"%')&gt;0","Clientes_Contents"
+      		</script>
+        </action>
+      </filtrarclientes> 
+
+      <limpiartipoalerta show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          	  this("MAP_IDTIPOALERTA")=0
+          	  this("MAP_TIPOALERTA")=""
+      		</script>
+        </action>
+      </limpiartipoalerta> 
+      <cerraralerta show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          	    if this("MAP_CERRADASEL")=0 then
+          	          if this("MAP_IDALERTASEL")&gt;0 then
+	          	         Msg="¿Desea cerrar la alerta seleccionada?"
+	 					 Res=LB_MsgYesNo(Msg)
+	  					 on error resume next
+	                     if Res=True then
+	                        LB_RunSQLRep "UPDATE GEN_ALERTAS SET COMENTARIO='"+this("MAP_COMENTARIOSEL")+"',CERRADA_SN=1 where ID="+cstr(this("MAP_IDALERTASEL"))
+	                     end if
+	                  else
+	                    LB_msg "Debe seleccionar una alerta"
+	                  end if
+          	    end if
+      		</script>
+        </action>
+      </cerraralerta>       
+      
+      <filtraralertas show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		'Alpicamos filtro a menu de alertas
+          		if this("MAP_FECHADESDE")&lt;&gt;"" and this("MAP_FECHAHASTA")&lt;&gt;"" then
+          		    FiltrarContents "t1.CERRADA_SN="+cstr(this("MAP_CERRADA"))+" and (t1.IDTIPOALERTA=##FLD_MAP_IDTIPOALERTA## or 0=##FLD_MAP_IDTIPOALERTA##) and date(t1.F_DESDE)=date(##FLD_MAP_FECHADESDE##) and date(t1.F_HASTA)=date(##FLD_MAP_FECHAHASTA##) and t1.COMENTARIO like '%"+cstr(this("MAP_COMENTARIO"))+"%' and(t1.ITX_BAJA=0 or t1.ITX_BAJA is null)","Alertas_Contents"
+          		else
+	          		if this("MAP_FECHAHASTA")&lt;&gt;"" then
+	          		    FiltrarContents "t1.CERRADA_SN="+cstr(this("MAP_CERRADA"))+" and (t1.IDTIPOALERTA=##FLD_MAP_IDTIPOALERTA## or 0=##FLD_MAP_IDTIPOALERTA##) and date(t1.F_HASTA)=date(##FLD_MAP_FECHAHASTA##) and t1.COMENTARIO like '%"+cstr(this("MAP_COMENTARIO"))+"%' and(t1.ITX_BAJA=0 or t1.ITX_BAJA is null)","Alertas_Contents"
+	          		else
+		          		if this("MAP_FECHADESDE")&lt;&gt;"" then
+		          		    FiltrarContents "t1.CERRADA_SN="+cstr(this("MAP_CERRADA"))+" and (t1.IDTIPOALERTA=##FLD_MAP_IDTIPOALERTA## or 0=##FLD_MAP_IDTIPOALERTA##) and date(t1.F_DESDE)=date(##FLD_MAP_FECHADESDE##) and t1.COMENTARIO like '%"+cstr(this("MAP_COMENTARIO"))+"%' and(t1.ITX_BAJA=0 or t1.ITX_BAJA is null)","Alertas_Contents"
+		          		else
+		          		    FiltrarContents "t1.CERRADA_SN="+cstr(this("MAP_CERRADA"))+" and (t1.IDTIPOALERTA=##FLD_MAP_IDTIPOALERTA## or 0=##FLD_MAP_IDTIPOALERTA##) and t1.COMENTARIO like '%"+cstr(this("MAP_COMENTARIO"))+"%' and(t1.ITX_BAJA=0 or t1.ITX_BAJA is null)","Alertas_Contents"
+		          		end if
+					end if
+
+			    end if
+      		</script>
+        </action>
+      </filtraralertas>  
+
+      <refreshreplica show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+           
+				RefreshReplica
+		 </script>
+        </action>
+      </refreshreplica>
+      
+      <sincronizar show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+				SincronizarReplica      
+		  </script>
+        </action>
+      </sincronizar>
+      <enviologs show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+               EnviarLogs
+		  </script>
+        </action>
+      </enviologs>
+      <descarga_imagenes show-progress-dialog="true">
+        <action name="runscript">
+          <script language="VBScript">
+                DescargarImagenes
+		  </script>
+        </action>
+      </descarga_imagenes>
+      <descarga_docs show-progress-dialog="true">
+        <action name="runscript">
+          <script language="VBScript">
+                DescargarDocumentos
+		  </script>
+        </action>
+      </descarga_docs>   
+      <descarga_adjuntos show-progress-dialog="true">
+        <action name="runscript">
+          <script language="VBScript">
+                DescargarAdjuntos
+		  </script>
+        </action>
+      </descarga_adjuntos> 
+    </coll>

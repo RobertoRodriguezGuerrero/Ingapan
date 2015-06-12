@@ -1,0 +1,344 @@
+/***************************************/
+/* Clase General para todas los frames */
+/***************************************/
+frame
+{
+    top:0;
+    
+}
+
+/***************************************/
+/* Clase General para todas los frames */
+/***************************************/
+group
+{
+  width:100%;
+}
+/********************************************/
+/* Clase General para todas las colecciones */
+/********************************************/
+coll
+{  
+	hardware-accelerated:false; 
+    cell-selected-border-width:4;
+    show-selected-item:true; 
+    notab:true;
+    show-toolbar:false;
+    check-owner:false;
+    dependent:false;
+    cell-border-width:1;
+    cell-selected-bgcolor:#61be1a;
+	cell-selected-forecolor:#f19e14;
+	cell-selected-border-color:#61be1a;
+	editmask:0;
+	border-width:2;
+	cell-bgcolor:#f19e14;
+	cell-forecolor:#f19e14;
+	cell-border-color:#f19e14;	
+}
+/***************************************/
+/* Clase General para todas los props */
+/***************************************/
+prop
+{
+    fontname:Neris-Thin;
+	fontsize:16;
+	labelbox:false;
+	text-fontsize:16;
+	text-border:true;
+	text-border-left:false;
+	text-border-right:false;
+	text-border-bottom:true;
+	text-border-top:false;
+    undo-button:false; 
+    lines:1;
+    fixed-lines:true;	
+    img-width:40; 
+    img-height:40; 
+    labelfont-bold:true;
+	grid-text-border-bottom:false;
+	text-forecolor-disabled:#000000;
+	/*
+	text-bgcolor-disabled:#EDEDED;
+	grid-text-bgcolor-disabled:#FFFFFF;
+	*/
+	labelshadow:false;
+	forecolor:#000000;
+	bgcolor:#FFFFFF;
+	text-bgcolor:#EDEDED;
+	text-forecolor:#000000;
+	showinline:true;    
+		
+}
+/*************************/
+/* Clase para props HTML */
+/*************************/
+.html
+{
+	labelfont-bold:true;
+	text-border-top:true;
+	text-border-bottom:true;
+	text-border-left:true;
+	text-border-right:true;
+ 
+}
+/***************************************/
+/* Clase prop con recuadro  */
+/***************************************/
+prop.prop2
+{
+    extends:prop;
+	text-border-left:true;
+	text-border-right:true;
+	text-border-bottom:true;
+	text-border-top:true;
+}
+
+
+
+/***************************************/
+/* Clase botones rectangulares*/
+/***************************************/
+prop.boton1
+{
+	fontsize:16;
+    labelwidth:20;
+    width:90p;
+    height:70p;
+    labelfont-bold:true;    
+  
+}
+
+/***************************************/
+/* Clase botones menu*/
+/***************************************/
+.botonmenu
+{
+	fontsize:18;
+    labelwidth:20;
+    height:70p;
+    width:36p;   
+    hide-softinput:true;
+}
+/***************************************/
+/* Clase botones menu replica*/
+/***************************************/
+.botonmenureplica
+{
+	fontsize:18;
+    labelwidth:20;
+    height:100p;
+    width:52p; 
+	hide-softinput:true;    
+}
+/***************************************/
+/* Clase botones menu desplegable izquierdo*/
+/***************************************/
+.botonmenuizq
+{
+	  height:146p;
+	  hide-softinput:true;	  
+	  
+}
+.boton2
+{
+    height:60p;
+    width:30p; 
+	hide-softinput:true;    
+}
+.boton3
+{
+    height:60p;
+    width:30p; 
+	hide-softinput:true;    
+}
+.botongrupo
+{
+	fontsize:12;
+    labelwidth:20;
+    height:65p;
+    width:85p;   
+    forecolor:#000000;
+    align:center;
+    hide-softinput:true;
+
+}
+/***************************************/
+/* Clase General para titulos Informacion estado*/
+/***************************************/
+prop.labelestado
+{
+	label-forecolor:#FFFFFF;
+	forecolor:#FFFFFF;
+	fontsize:6;
+	labelbox:false;
+    labelfont-bold:false;
+    width:60%;
+    lines:1;
+    fixed-lines:true;    
+    
+}
+/***************************************/
+/* Clase label botones menu*/
+/***************************************/
+.labelbotonmenu
+{
+	fontsize:8;
+	forecolor:#000000;
+    width:36p;   
+    lines:1;
+    fixed-lines:true; 
+	labelbox:false;
+    labelfont-bold:false; 
+	tmargin:-5%;    
+}
+
+/***************************************/
+/* Clase label botones menu replica*/
+/***************************************/
+.labelbotonmenureplica
+{
+	fontsize:8;
+	forecolor:#000000;
+    width:52p;   
+    lines:1;
+    fixed-lines:true; 
+	labelbox:false;
+    labelfont-bold:false; 
+   
+}
+/***************************************/
+/* Clase General para titulos mas grandes*/
+/***************************************/
+prop.label2
+{
+	label-forecolor:#000000;
+	forecolor:#000000;
+	bgcolor:#00000000;
+	fontsize:16;
+	labelbox:false;
+    labelfont-bold:true;
+    width:100%;
+    
+}
+/***************************************/
+/* Clase General para titulos de cabecera*/
+/***************************************/
+prop.labelcab
+{
+	label-forecolor:#FFFFFF;
+	forecolor:#FFFFFF;
+	fontsize:20;
+	labelbox:false;
+    labelfont-bold:true;
+    width:94%;
+    height:100%;
+    text-align:center;
+    label-align:center;
+    align:center;
+    lmargin:0;
+    newline:false;
+    
+}
+
+.fotocatalogo
+{
+    width:100%;
+    
+}
+.z_calendario
+{
+    
+	extends:prop;
+	weekdays-fontsize:16;
+	forecolor:#ff232e5c;
+	bgcolor:#00000000;
+	cell-bgcolor:#00000000;
+	cell-forecolor:#ff232e5c;
+	cell-border-width:2;
+	cell-border-color:#00000000;
+	cell-align:center;
+	align:center;
+	fontsize:18;
+	cell-selected-bgcolor:#00000000;
+	cell-selected-forecolor:#ff232e5c;
+	cell-selected-border-color:#ff232e5c;
+	weekdays-bgcolor:#00000000;
+	weekdays-forecolor:#ff232e5c;
+	weekdays-fontsize:4;
+	weekdays-longname:false;
+	weekdays-align:top|left;
+	border-width:2;
+	cell-border-color:#00000000;
+	page-swipe:true;
+	cell-other-month-bgcolor:#ffdcdadc;
+	border:false;
+}
+
+.z_calendario_week
+{
+    
+	extends:prop;
+	weekdays-fontsize:10;
+	forecolor:#ff232e5c;
+	bgcolor:#00000000;
+	cell-bgcolor:#00000000;
+	cell-forecolor:#ff232e5c;
+	cell-border-width:1;
+	cell-border-color:#00000000;
+	cell-align:center;
+	align:center;
+	fontsize:18;
+	cell-selected-bgcolor:#00000000;
+	cell-selected-forecolor:#ff232e5c;
+	cell-selected-border-color:#ff232e5c;
+	weekdays-bgcolor:#00000000;
+	weekdays-forecolor:#ff232e5c;
+	weekdays-longname:false;
+	weekdays-align:top|left;
+	border-width:1;
+	cell-border-color:#00000000;
+	page-swipe:true;
+	cell-other-month-bgcolor:#ffdcdadc;
+	border:false;
+	week-start-hour:7;
+	week-end-hour:22;
+}
+
+.z_contents
+{
+    
+
+	bgcolor:#00000000;
+	cell-bgcolor:#0000000;
+	cell-forecolor:#f19e14;
+	cell-align:center;
+	align:center;
+	fontsize:18;
+	cell-border-color:#f19e14;
+	page-swipe:true;
+	border:true;
+}
+
+.z_contents_horizontal
+{
+    
+    classid:com.xone.android.contentpageview.XoneContentPager;
+    page-rows:1; 
+    page-columns:3;
+	bgcolor:#FFFFFF;
+	cell-bgcolor:#FFFFFF;
+	cell-forecolor:#FFFFFF;
+	fontsize:18;
+    orientation:horizontal;
+	cell-border-color:#FFFFFF;
+	page-swipe:true;
+	border:true;
+	align:top;
+	viewmode:slideview;
+	paging-enabled:true;
+    cell-selected-bgcolor:#FFFFFF;
+    cell-bgcolor:#FFFFFF;
+    bgcolor:#FFFFFF;
+	cell-selected-border-color:#f19e14;	
+}

@@ -1,0 +1,10 @@
+﻿<coll name="Datos_Mapa" title="mapa"
+sql="SELECT t1.ID,t1.NOMBRE,t1.XLATITUD,t1.XLONGITUD,'bt-gps-black.png' AS MARKERICON     FROM ##PREF##Clientes t1      " objname="Clientes" updateobj="Clientes" progid="ASData.CASBasicDataObj" filter="" sort="">
+  	<group name="General" id="1">
+        <prop name="XLATITUD" visible="7" type="N6" fieldsize="10" mapview-latitude="true" showmap-latitud="true"></prop>
+		<prop name="XLONGITUD" visible="7" type="N6" fieldsize="10" mapview-longitude="true" showmap-longitud="true"></prop>
+        <prop name="NOMBRE" type="T" size="250" visible="0" mapview-description="true" mapview-address="true" />
+ 
+
+</group>
+</coll>

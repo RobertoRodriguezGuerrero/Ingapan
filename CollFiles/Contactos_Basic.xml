@@ -1,0 +1,30 @@
+﻿<coll name="Contactos_Basic" title="Contactos_Basic"
+sql="SELECT t1.*     FROM ##PREF##Contactos t1" objname="Contactos" updateobj="Contactos" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+    <prop name="IDEMPRESA" visible="0" type="N" size="8" />    
+    <prop name="IDTIPOCONTACTO" visible="0" type="N" size="8" />   
+    <prop name="IDRAZONSOCIAL" visible="0" type="N" size="8" />   
+	<prop name="NOMBRE" visible="7" type="T" size="40" width="100%" labelwidth="0" newline="false" />
+
+	<prop name="TELEFONOS" visible="0" type="T" size="25" />
+	<prop name="TELEFAX" visible="0" type="T" size="25" />
+	<prop name="E_MAIL" visible="0" type="T" size="100" />
+	<prop name="COMENTARIO" visible="0" type="T" size="400" />
+	<prop name="HIST_SN" visible="0" type="N" size="1" />
+	
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />        
+  </group>
+ <selecteditem>
+    <action name="runscript">
+      <script language="VBScript">
+
+            ui.msgbox "  Contacto: "+cstr(this("NOMBRE"))+chr(10)+chr(13)+" Telefonos: "+cstr(this("TELEFONOS"))+chr(10)+chr(13)+" Fax: "+cstr(this("TELEFAX"))+chr(10)+chr(13)+" Email: "+cstr(this("E_MAIL"))+chr(10)+chr(13)+" Comentario: "+cstr(this("COMENTARIO"))+chr(10)+chr(13),"DATOS CONTACTO",0
+	   </script>
+    </action>
+ </selecteditem>   
+</coll>

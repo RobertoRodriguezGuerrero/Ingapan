@@ -1,0 +1,16 @@
+﻿<coll name="Provincias_Basic" title="Provincias_Basic"
+sql="SELECT t1.ID     FROM ##PREF##Provincias t1" objname="Provincias" updateobj="Provincias" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+    <prop name="IDEMPRESA" visible="0" type="N" size="8" />    
+    <prop name="IDPAIS" visible="0" type="N" size="8" />   
+	<prop name="COD" visible="0" type="T" size="4" />
+	<prop name="NOMBRE" visible="0" type="T" size="25" />	
+
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />        
+  </group>
+</coll>

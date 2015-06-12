@@ -1,0 +1,94 @@
+﻿<coll name="LogonColl" nomenmask="16" title="Inicio" login-coll="true" fontsize="8" progid="ASData.CASBasicDataObj"
+sql="SELECT n.*                FROM ##PREF##Usuarios n" objname="Usuarios" updateobj="Usuarios" autorefresh="true" notab="true" disabled-buttonok="true" nostopreplica="true">
+      <group name="Login" id="1" xscrollbar="false">
+        <frame name="cabecera" width="100%" height="8%" scroll="false" bgcolor="#094c9b,#05264e">
+         <prop name="MAP_ICON1" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" locked="true" />
+		  <prop name="MAP_CABECERA" visible="1" type="TL" class="labelcab" title="INGAPAN Mobile CRM" />
+        </frame>
+        <frame name="logo" width="100%" height="32%" scroll="false" bgcolor="#FFFFFF" align="center">
+          <prop name="MAP_PATH1" visible="1" type="IMG" labelwidth="0" height="100%" align="center" path="##FLD_MAP_IMG##" locked="true" locking="true" />
+        </frame>
+        <prop name="MAP_IDUSUARIO" type="N" visible="0" mapcol="Usuarios" mapfld="ID" fieldsize="4" size="4" />
+        <frame name="datos" width="100%" height="54%" scroll="false">
+          <prop name="MAP_LOGIN" visible="0" type="T" linkedto="MAP_IDUSUARIO" linkedfield="LOGIN" />
+          <prop name="MAP_LBSESION" visible="1" type="TL" class="label2" width="25%" fontsize="18" title="Inicie Sesión" forecolor="#000000" tmargin="4" />
+          <prop name="MAP_LBUSUARIO" visible="1" type="TL" class="label2" tmargin="2" width="25%" title="Usuario:" forecolor="#000000" lmargin="2" />
+          <prop name="MAP_USUARIO" visible="1" type="T" class="prop2" tmargin="2" fontsize="16" linkedto="MAP_IDUSUARIO" linkedfield="NOMBRE" title="USUARIO" showinline="true" width="60%" labelwidth="0" size="150" newline="false" onchange="Refresh" fieldsize="18" text-border="true" bgcolor="#EBEBEB" />
+          <prop name="MAP_LBPWD" visible="1" type="TL" class="label2" tmargin="2" width="25%" title="Pasword:" forecolor="#000000" lmargin="2" />
+          <prop name="MAP_PWD" visible="1" type="X" class="prop2" tmargin="2" fontsize="16" xhash-type="MD5" width="60%" labelwidth="0" size="150" newline="false" onchange="Refresh" fieldsize="18" text-border="true" bgcolor="#EBEBEB" />
+          <prop name="MAP_OS" type="T" visible="0" fieldsize="8" /> 
+		  <prop type="B" visible="1" tmargin="8" class="boton1" name="Acceder" caption="Acceder" bgcolor="#009933" onchange="Refresh255" lmargin="2" method="ExecuteNode (click-entrar)" />
+          <prop type="B" visible="1" tmargin="8" class="boton1" name="Cancelar" caption="Cancelar" bgcolor="#EBEBEB" onchange="Refresh255" newline="false" lmargin="1" method="ExecuteNode (click-cancelar)" />
+	   </frame>
+        <prop name="MAP_IMG" type="T" visible="0" />	   
+        <prop name="MAP_VERSIONAPP" visible="0" type="T" />
+        <prop name="MAP_VERSIONFRAME" visible="0" type="T" />
+        <prop name="MAP_VERSIONXONELIVE" visible="0" type="T" />
+        <prop name="MAP_MID" type="T" visible="0" />
+        <prop name="MAP_IMEI" type="T" visible="0" />
+               <prop name="MAP_PLATFORM" type="T" visible="0" />
+        <prop name="MAP_DISPOSITIVO" type="T" visible="0" />
+        <prop name="MAP_MINIMA_VERSION_BD" type="N" visible="0" />
+        <prop name="MAP_MINIMA_VERSION_FRAMEWORK_AND" type="N" visible="0" />
+        <prop name="MAP_MINIMA_VERSION_FRAMEWORK_IOS" type="N" visible="0" />
+        <frame name="barraestado" width="100%" height="6%" scroll="false" bgcolor="#05264e" orientation="botton">
+          <prop name="MAP_LBESTADO" visible="1" type="TL" class="labelestado" title="##FLD_MAP_DATOSESTADO##" lmargin="30%" tmargin="2" width="60%" />
+        </frame>
+        <prop name="MAP_DATOSESTADO" visible="0" type="T" />
+      </group>
+      <method name="ExecuteNode">
+        <param name="P1" type="T" upper="true" value="" />
+      </method>
+      <create>
+        <!---->
+        <!---->
+        <!---->
+        <action name="setval" field="MAP_MINIMA_VERSION_BD" value="2" />
+        <action name="setval" field="MAP_MINIMA_VERSION_FRAMEWORK_AND" value="4000" />
+        <action name="setval" field="MAP_MINIMA_VERSION_FRAMEWORK_IOS" value="3441" />
+		<action name="setval" field="MAP_PWD" value="" />
+        <action name="setval" field="MAP_VERSIONAPP" value="##VERSION##" />
+        <action name="setval" field="MAP_VERSIONFRAME" value="##FRAME_VERSION##" />
+        <action name="setval" field="MAP_MID" value="##MID##" />
+        <action name="setval" field="MAP_IMEI" value="##DEVICEID##" />
+        <action name="setval" field="MAP_VERSIONXONELIVE" value="##LIVEUPDATE_VERSION##" />
+        <action name="setval" field="MAP_DISPOSITIVO" value="##DEVICE_MODEL##" />
+        <action name="setval" field="MAP_OS" value="##DEVICE_OSSDKCODE##" />
+        <action name="setval" field="MAP_PLATFORM" value="##DEVICE_OS##"></action>
+        <action name="setval" field="MAP_IMG" value="..\icons\ingapan_login.png" />
+        <action name="runscript">
+          <script language="VBScript">   
+          	  this("MAP_DATOSESTADO")="IMEI: "+this("MAP_IMEI")+"    Terminal: "+replace(this("MAP_MID"),"'","")+"    VersionApp: "+this("MAP_VERSIONAPP")+"    Framework: "+this("MAP_VERSIONFRAME")+"    XoneLive: "+this("MAP_VERSIONXONELIVE")+"    BD: "+this("MAP_MINIMA_VERSION_BD") 
+          </script>
+        </action>
+      </create>
+      <click-entrar>
+        <action name="runscript">
+          <script language="VBScript">
+				ClickEntrar
+		  </script>
+        </action>
+      </click-entrar>
+      <click-cancelar>
+        <action name="runscript">
+          <script language="VBScript">
+						appdata.failwithmessage -11888,"##EXITAPP##"
+					</script>
+        </action>
+      </click-cancelar>
+      <login-ok>
+        <action name="runscript">
+          <script language="VBScript">
+						'  Vamos a cargar algunas variables globales
+
+					</script>
+        </action>
+      </login-ok>
+      <login-fail>
+        <action name="runscript">
+          <script language="VBScript">
+						appdata.failwithmessage -8100,"Usuario o clave no validos"
+					</script>
+        </action>
+      </login-fail>
+    </coll>

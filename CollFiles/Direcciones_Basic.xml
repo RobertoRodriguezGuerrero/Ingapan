@@ -1,0 +1,31 @@
+﻿<coll name="Direcciones_Basic" title="Direcciones_Basic"
+sql="SELECT t1.*     FROM ##PREF##Direcciones t1" objname="Direcciones" updateobj="Direcciones" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+    <prop name="IDEMPRESA" visible="0" type="N" size="8" />    
+    <prop name="IDPAIS" visible="0" type="N" size="8" />   
+    <prop name="IDPROVINCIA" visible="0" type="N" size="8" />  
+    <prop name="IDRAZONSOCIAL" visible="0" type="N" size="8" /> 
+    <prop name="COD" visible="0" type="T" size="6" />	
+	<prop name="NOMBRE" visible="7" type="T" size="40" width="100%" labelwidth="0" newline="false" />
+	<prop name="DIR" visible="0" type="T" size="80" />
+	<prop name="COD_POSTAL" visible="0" type="T" size="10" />
+	<prop name="TELEFONOS" visible="0" type="T" size="25" />
+	<prop name="TELEFAX" visible="0" type="T" size="25" />
+	<prop name="POBLACION" visible="0" type="T" size="40" />
+
+	
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />        
+  </group>
+ <selecteditem>
+    <action name="runscript">
+      <script language="VBScript">
+            ui.msgbox "  Nombre: "+this("NOMBRE")+chr(10)+chr(13)+" Telefonos: "+this("TELEFONOS")+chr(10)+chr(13)+" Fax: "+this("TELEFAX")+chr(10)+chr(13)+" Poblacion: "+this("POBLACION")+" "+this("COD_POSTAL")+chr(10)+chr(13)+" Dir: "+this("DIR")+chr(10)+chr(13),"DATOS DIRECCION",0
+	   </script>
+    </action>
+ </selecteditem>     
+</coll>

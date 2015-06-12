@@ -1,0 +1,37 @@
+﻿<coll name="AdjuntosAgenda_Contents" title="AdjuntosAgenda_Contents"
+sql="SELECT t1.*,t1.PATH    FROM ##PREF##AdjuntosAgenda t1" check-owner="false" dependent="false" objname="AdjuntosAgenda" updateobj="AdjuntosAgenda" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+    <prop name="ID_ERP" type="N" visible="0" />
+	<prop name="IDAGENDA" visible="0" type="N" size="8" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDUSUARIO" visible="0" type="N" size="8" />
+    <prop name="FECHA" visible="0" type="D" size="8" /> 	
+	<prop name="PATH" visible="7" type="T" size="50" width="100%" labelwidth="0" fieldsize="20" title="Adjunto" />
+	<prop name="TYPE" visible="0" type="N" size="8" />
+
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />      
+   </group>
+	<create>   
+   		<action name="setval" field="FECHA" value="##NOW_TIME##" />  
+		<action name="setval" field="IDUSUARIO" value="##USERID##" /> 		
+		<action name="setval" field="IDEMPRESA" value="##ENTID##" /> 
+				<action name="setval" field="TYPE" value="1" /> 
+	</create>	
+ <selecteditem>
+    <action name="runscript">
+      <script language="VBScript"> 	
+      	if this("ID_ERP")=0 then
+      	   
+     		ui.OpenFile this("PATH")
+        else
+            ui.OpenFile "http://212.170.61.117:8080/replicaimages/"+this("PATH")
+        end if
+	   </script>
+    </action>
+ </selecteditem>       
+</coll>

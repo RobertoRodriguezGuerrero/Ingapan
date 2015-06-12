@@ -1,0 +1,32 @@
+﻿<coll name="Articulos_Basic" title="Articulos_Basic"
+sql="SELECT t1.*     FROM ##PREF##Articulos t1" objname="Articulos" updateobj="Articulos" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="COD" visible="7" type="T" size="5" width="20%" labelwidth="0" />
+	<prop name="DESCRIP" visible="7" type="T" size="30" width="80%" labelwidth="0" newline="false" />
+	<prop name="F_VIGENCIA" visible="0" type="D" size="8" />
+	<prop name="F_BAJA" visible="0" type="D" size="8" />
+	<prop name="GAUNITIP_UNI1" visible="0" type="T" size="4" />	
+	<prop name="GAUNITIP_UNI2" visible="0" type="T" size="4" />
+	<prop name="GAUNITIP_PR" visible="0" type="T" size="4" />
+	<prop name="GAUNITIP_EXPED" visible="0" type="T" size="4" />	
+	<prop name="FAMILIA" visible="0" type="T" size="40" />
+	<prop name="GAMA" visible="0" type="T" size="40" />
+	<prop name="SUBGAMA" visible="0" type="T" size="40" />	
+	<prop name="MARCA" visible="0" type="T" size="40" />
+	<prop name="UM_CAJA" visible="0" type="N2" size="5" />
+	<prop name="UM_PALET" visible="0" type="N2" size="30" />	
+	<prop name="CAJAS_BASE" visible="0" type="N2" size="8" />
+	<prop name="CAJAS_PALET" visible="0" type="N2" size="8" />
+	<prop name="IMAGEN_PEQ" visible="0" type="T" size="40" />	
+	<prop name="IMAGEN_GRANDE" visible="0" type="T" size="40" />
+	<prop name="DESCRIP_LARGA" visible="0" type="T" size="400" />
+	
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />  
+  </group>
+</coll>

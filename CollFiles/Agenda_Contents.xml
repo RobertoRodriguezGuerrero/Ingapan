@@ -1,0 +1,42 @@
+﻿<coll name="Agenda_Contents" title="Agenda_Contents"
+sql="SELECT t1.*,CASE WHEN t2.ID&gt;0 then t2.NOMBRE else t1.NOMBRE_VISITA end  AS MAP_CLIENTE,t3.DESCRIP AS MAP_TIPOMENSAJEAGENDA,      CASE WHEN t1.FECHA_FIN is null then '#88bf1b' else '#f19e14' end AS MAP_COLORVIEW FROM ##PREF##Agenda t1      left outer join ##PREF##Clientes t2 ON t1.IDCLIENTE=t2.ID      left outer join ##PREF##TiposMensajeAgenda t3 ON t1.IDTIPOMENSAJEAGENDA=t3.ID" check-owner="false" dependent="false" objname="Agenda" updateobj="Agenda" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+	<prop name="FECHA_VISITA" visible="7" type="DT" class="prop2" align="center" size="8" width="30%" labelwidth="0" bgcolor="#88bf1b" text-bgcolor="#88bf1b" locked="true" /> 	
+	<prop name="FECHA_FIN" visible="7" type="DT" class="prop2" align="center" newline="false" size="8" width="30%" labelwidth="0" bgcolor="##FLD_MAP_COLORVIEW##'" text-bgcolor="##FLD_MAP_COLORVIEW##" locked="true" /> 	
+	<prop name="MAP_TIPOMENSAJEAGENDA" visible="7" type="T" class="prop2" size="8" width="40%" labelwidth="0" bgcolor="##FLD_MAP_COLORVIEW##'" text-bgcolor="##FLD_MAP_COLORVIEW##" locked="true" newline="false" /> 	
+	<prop name="MAP_CLIENTE" visible="0" type="D" class="prop2" size="8" width="100%" labelwidth="0" /> 	
+	<prop name="OBSERVACIONES" visible="7" type="T" class="prop2" size="8" width="100%" labelwidth="0" />
+    <prop name="ID" type="N" visible="0" />
+    <prop name="MAP_COLORVIEW" type="T" visible="0" />
+    <prop name="ID_ERP" visible="0" type="N" size="8" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDUSUARIOORI" visible="0" type="N" size="8" />
+	<prop name="IDUSUARIODES" visible="0" type="N" size="8" />
+	<prop name="IDUSUARIO" visible="0" type="N" size="8" />
+	<prop name="IDCLIENTE" visible="0" type="N" size="8" />
+	<prop name="IDCOMPETENCIA" visible="0" type="N" size="8" />
+	<prop name="IDTIPOMENSAJEAGENDA" visible="0" type="N" size="8" />
+
+	<prop name="FECHA_CREACION" visible="0" type="D" size="8" />
+	<prop name="TIEMPO_VISITA" visible="0" type="D" size="8" />
+	<prop name="XLATITUD" visible="0" type="T" size="15" />
+	<prop name="XLONGITUD" visible="0" type="T" size="15" />
+	<prop name="NOMBRE_VISITA" visible="0" type="T" size="400" />
+	<prop name="COMPETENCIA_SN" visible="0" type="N" size="8" /> 	
+
+
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" /> 
+  </group>	
+ <selecteditem>
+    <action name="runscript">
+      <script language="VBScript">       
+	        LB_ShowForm "Agenda_Editar",this("ID")
+	   </script>
+    </action>
+ </selecteditem> 
+
+</coll>

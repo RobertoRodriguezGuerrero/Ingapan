@@ -1,0 +1,42 @@
+﻿<coll name="Mapas" title="Mapas"
+sql="SELECT t1.ID,t1.COD,t1.NOMBRE,t1.F_PAGO,t1.TARIFA     FROM ##PREF##Clientes t1" objname="Clientes" updateobj="Clientes" progid="ASData.CASBasicDataObj" filter="" sort="">
+<!-- ##### GRUPO GENERAL DE DATOS CLIENTE##### -->   
+      <group name="general" id="1">
+    	<prop name="ID" type="N" visible="0" />      
+        <!-- ## Frame Cabecera Datos Cliente## -->  
+        <frame name="frm_cabecera" width="100%" height="7%" scroll="false" orientation="top" bgcolor="#094c9b,#05264e">
+          <prop name="MAP_ICON1" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" locked="true" />
+          <prop name="MAP_CABECERA" visible="1" type="TL" class="labelcab" title="##FLD_MAP_LABELCABECERA##" />
+          <prop name="MAP_LABELCABECERA" type="T" visible="0" />
+        </frame> 
+        <frame name="frm_mapa" height="87%" width="100%">
+    			<prop name="MAP_MAPA" title=" " type="Z" visible="1" width="100%" height="100%" viewmode="mapview" mapview-embedded="true" contents="MAPA" text-border="false" border="false" bgcolor="#00000000" mask="2" img="bt-gps-black.png" imgsel="bt-gps-black.png" />
+   			 	<contents name="MAPA" src="Datos_Mapa" filter="t1.ID=##FLD_ID##" />
+        </frame>   			 	
+		<!-- ## Frame Bara Estado## -->  
+        <frame name="frm_barraestado" width="100%" height="6%" scroll="false" bgcolor="#05264e" align="right" orientation="bottom">
+          <prop name="MAP_DATOSESTADO" visible="0" type="T" />
+          <prop name="MAP_LBESTADO" visible="1" type="TL" class="labelestado" title="##FLD_MAP_DATOSESTADO##" tmargin="2" />
+  		  <prop type="B" visible="1" class="boton3" name="exit" img="bt_back_white.png" newline="false" bgcolor="#009933" onchange="Refresh255" lmargin="1" method="ExecuteNode (exit)" width="4%" />          
+          
+        </frame>
+     </group>
+      <before-edit show-wait-dialog="false">		
+		<action name="runscript">
+          <script language="VBScript">   
+				'Cargamos datos de barra de estado
+				this("MAP_DATOSESTADO")=CargarBarraEstado()	
+				this("MAP_LABELCABECERA")="INGAPAN Mobile CRM  -  Posicionamiento / Mapa"
+          </script>
+        </action>
+      </before-edit>  
+      <exit show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+                 
+	          			appdata.failwithmessage -11888,"##EXIT##"
+	          	 
+      		</script>
+        </action>
+      </exit> 
+</coll>

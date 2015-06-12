@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<xml>
+	<app name="XOne Application" caption="XOne Application"/>
+	<menus>
+		<item name="configuracion" caption="Configuration">
+		<props name="configuracion" caption="Gestión Usuarios" imgbk="mantenimiento.gif"/>
+			<item menu="configuracion" name="mnUsuario">
+				<props caption="Usuarios" icon="usuario.bmp"/>
+				<coll name="Usuarios" mode="1" protection="0">
+					<props caption="Usuarios" mask="2" loadall="0" withopen="1"/>
+				</coll>
+			</item>
+		</item>
+	</menus>
+</xml>

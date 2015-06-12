@@ -1,0 +1,40 @@
+﻿<coll name="Partes_Cerrados_Contents" title="Partes_Basic"
+sql="SELECT t1.*, (select sum(l.IMPORTE) from gen_lineasparte l where l.IDPARTE=t1.ID and l.TARJETA=1) AS MAP_TARJETA, (select sum(l.IMPORTE) from gen_lineasparte l where l.IDPARTE=t1.ID and (l.TARJETA=0 or l.TARJETA is null)) AS MAP_EFECTIVO FROM ##PREF##Partes t1" objname="Partes" updateobj="Partes" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDUSUARIO" visible="0" type="N" size="8" />
+	<prop name="IDCLIENTE" visible="0" type="N" size="8" />	
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDRAZONSOCIAL" visible="0" type="N" size="8" />
+	<prop name="FECHA" visible="0" type="D" size="8" /> 	
+	
+	<prop name="NOTAS" visible="0" type="T" size="100" />
+	<prop name="CERRADO" visible="0" type="T" size="1" />
+	<prop name="KM_SALIDA" visible="0" type="N" size="40" width="12%" title="KM" labelwidth="0" newline="false" />		
+	<prop name="KM_LLEGADA" visible="0" type="N" size="40" width="12%" title="KM" labelwidth="0" newline="false" />	
+
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />     
+	
+	<prop name="FECHA_CIERRE" visible="7" type="T" size="40" width="20%" title="Fecha" labelwidth="0" newline="false" />
+	<prop name="LOCALIDADES" visible="7" type="T" size="40" width="40%" title="Localidad" labelwidth="0" newline="false" />
+	<prop name="MAP_EFECTIVO" visible="7" type="N2" size="40" width="12%" title="" labelwidth="0" newline="false" />		
+	<prop name="MAP_TARJETA" visible="7" type="N2" size="40" width="12%" title="" labelwidth="0" newline="false" />	
+    <prop name="MAP_IMPORTE" formula="ext.[IMPORTE]" visible="7" type="N2" size="40" width="16%" title="Importe" labelwidth="0" newline="false" />	
+  </group>
+      <ext-formula>
+        <param name="IMPORTE"
+sql="select sum(IMPORTE) as N from gen_lineasparte t1 where t1.IDPARTE=##FLD_ID## and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" field="N" type="N2" />
+        
+      </ext-formula>   
+       <selecteditem>
+        <action name="runscript">
+          <script language="VBScript">
+       
+		   </script>
+        </action>
+      </selecteditem>    
+</coll>

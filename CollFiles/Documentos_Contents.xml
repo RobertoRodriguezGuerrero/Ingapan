@@ -1,0 +1,31 @@
+﻿<coll name="Documentos_Contents" title="Documentos_Basic"
+sql="SELECT t1.*     FROM ##PREF##Documentos t1 INNER JOIN ##PREF##TiposDoc t2 ON t1.IDTIPODOC=t2.ID" objname="Documentos" updateobj="Documentos" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+
+    <prop name="ID" type="N" visible="0" />
+	<prop name="ID_ERP" visible="0" type="N" size="8" />	
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDTIPODOC" visible="0" type="N" size="8" />
+	<prop name="MARCA" visible="0" type="T" size="20" /> 	
+	<prop name="DESCRIP" visible="7" type="T" size="30" width="50%" labelwidth="0" />
+	<prop name="PATH" visible="7" type="T" size="30" width="50%" labelwidth="0" newline="false" />	
+	<prop name="ACTIVO" visible="0" type="N" size="8" />
+
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />  
+  </group>
+ <selecteditem>
+    <action name="runscript">
+      <script language="VBScript">
+			if appdata.CurrentEnterprise.variables("PLATFORM")="IOS" then
+            	ui.Openfile replace("http://212.170.61.117:8080/replicadocs/"+this("PATH"),"\","/")
+            else
+            	ui.Openfile replace("http://212.170.61.117:8080/replicadocs/"+this("PATH"),"\","/"),"cache"
+            end if
+	   </script>
+    </action>
+ </selecteditem>    
+</coll>

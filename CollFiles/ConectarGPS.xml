@@ -1,0 +1,13 @@
+﻿<coll name="ConectarGPS" title="ConectarGPS"
+sql="SELECT t1.*       FROM ##PREF##empresa t1" objname="ConectarGPS" updateobj="ConectarGPS" progid="ASData.CASBasicDataObj" stringkey="true" idfieldname="ID" connection="transmision" loadall="false" withopen="true" useextdata="true" fontsize="9">
+      <connection name="transmision" connstring="Provider=CGSoft Remote Provider;Data Source=127.0.0.1;Port=4242;ProgID=CGSSocketCE.ConnectCE" />
+      <prop name="LONGITUD" visible="3" type="T" size="12" />
+      <prop name="LATITUD" visible="3" type="T" size="12" />
+      <prop name="ALTITUD" visible="3" type="T" size="12" />
+      <prop name="RUMBO" visible="3" type="T" size="12" />
+      <prop name="FGPS" visible="3" type="D" size="12" />
+      <prop name="HGPS" visible="3" type="T" size="12" />
+      <prop name="VELOCIDAD" visible="3" type="T" size="12" />
+      <prop name="STATUS" visible="3" type="T" size="12" />
+      <prop name="SATELITES" visible="3" type="N" size="12" />
+    </coll>

@@ -1,0 +1,25 @@
+﻿<coll name="PedidosLin_Historico_Contents" title="PedidosLin_Basic"
+sql="SELECT t1.*,a.DESCRIP AS MAP_ARTICULO,a.GAUNITIP_UNI1 AS MAP_GAUNITIP_UNI1,a.GAUNITIP_UNI2 AS MAP_GAUNITIP_UNI2   ,t2.N_PEDIDO AS MAP_NPEDIDO  ,t2.F_PEDIDO AS MAP_FPEDIDO    FROM ##PREF##PedidosLin t1   inner join ##PREF##Articulos a ON a.ID=t1.IDARTICULO   inner join ##PREF##PedidosCab t2 ON t2.ID=t1.IDPEDIDO" objname="PedidosLin" updateobj="PedidosLin" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDPEDIDO" visible="0" type="N" size="8" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDARTICULO" visible="0" type="N" size="8" />	
+	<prop name="MAP_NPEDIDO" visible="7" type="N" size="4" width="50%" labelwidth="0" />	
+	<prop name="MAP_FPEDIDO" visible="7" type="N" size="4" width="50%" labelwidth="0" newline="false" />	
+	<prop name="N_LIN" visible="0" type="N" size="8" width="10%" labelwidth="0" /> 	
+	<prop name="MAP_ARTICULO" visible="7" type="T" size="4" width="70%" labelwidth="0" />	
+	<prop name="MAP_GAUNITIP_UNI2" visible="7" type="T" size="4" width="15%" labelwidth="0" newline="false" />	
+	<prop name="C_UNI2" visible="7" type="N2" size="4" width="15%" labelwidth="0" newline="false" />
+	<prop name="MAP_GAUNITIP_UNI1" visible="0" type="T" size="4" width="10%" />
+	<prop name="C_UNI1" visible="0" type="N2" size="4" width="10%" />
+	<prop name="N_PEDIDO" visible="0" type="N" size="8" />
+	<prop name="TYPE" visible="0" type="T" size="8" />
+	<prop name="DESCRIP" visible="0" type="T" size="4000" />	
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />      
+  </group>
+</coll>

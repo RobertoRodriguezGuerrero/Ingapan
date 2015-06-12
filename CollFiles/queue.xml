@@ -1,0 +1,8 @@
+﻿<coll name="queue" title="queue"
+sql="SELECT t1.*               FROM master_Replica_queue t1" autorefresh="true" objname="master_Replica_queue" updateobj="master_Replica_queue" progid="ASData.CASBasicDataObj">
+      <group name="GENERAL" id="1">
+        <prop name="TIMESTAMP" visible="7" labelwidth="0" fieldsize="8" type="D" />
+        <prop name="SQL" visible="7" fieldsize="15" labelwidth="0" type="T" />
+        <prop name="ROWID" visible="7" fieldsize="15" labelwidth="0" type="T" />
+      </group>
+    </coll>

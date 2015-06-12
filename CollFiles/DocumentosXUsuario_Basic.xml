@@ -1,0 +1,9 @@
+﻿<coll name="DocumentosXUsuario_Basic" title="DocumentosXUsuario_Basic"
+sql="SELECT t1.ID     FROM ##PREF##DocumentosXUsuario t1" objname="DocumentosXUsuario" updateobj="DocumentosXUsuario" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+    <prop name="IDEMPRESA" type="N" visible="0" />
+    <prop name="IDDOCUMENTO" type="N" visible="0" />
+    <prop name="IDUSUARIO" type="N" visible="0" />        
+  </group>
+</coll>

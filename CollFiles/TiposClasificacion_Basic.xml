@@ -1,0 +1,15 @@
+﻿<coll name="TiposClasificacion_Basic" title="TiposClasificacion_Basic"
+sql="SELECT t1.ID     FROM ##PREF##TiposClasificacion t1" objname="TiposClasificacion" updateobj="TiposClasificacion" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+    <prop name="IDEMPRESA" visible="0" type="N" size="8" />    
+	<prop name="COD" visible="0" type="T" size="4" />
+	<prop name="DESCRIP" visible="0" type="T" size="40" />	
+
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />        
+  </group>
+</coll>

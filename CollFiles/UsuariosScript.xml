@@ -1,0 +1,35 @@
+﻿<coll name="UsuariosScript" title="el usuario"
+sql="SELECT t1.*,v.VERSION_BD AS MAP_VERSIONBD,'##DEVICE_OSSDKCODE##' AS MAP_OS,'##DEVICE_OS##' AS MAP_PLATFORM,'##DEVICEID##' AS MAP_IMEI,'##VERSION##' AS MAP_VERSIONAPP,'##FRAME_VERSION##' AS MAP_VERSIONFRAMEWORK,##MID## AS MAP_MID       FROM ##PREF##Usuarios t1       INNER JOIN ##PREF##versiones v ON v.MID=0" shadow="false" objname="Usuarios" updateobj="Usuarios" progid="ASGestion.CASUser" dropdown="true" editwidth="101" editheight="97" fontsize="9" filter="" sort="">
+      <group name="General" id="1">
+        <prop name="IDEMPRESA" visible="0" type="N" mapcol="Empresas" mapfld="ID" />
+        <prop name="LOGIN" visible="3" type="T" fieldsize="10" fixed-text="true" size="10" />
+        <prop name="PWD" type="T" fieldsize="10" fixed-text="true" size="10" visible="0" />
+        <prop name="NOMBRE" visible="3" type="T" fieldsize="30" fixed-text="true" size="30" />
+        <prop name="USERTYPE" visible="1" type="T" fieldsize="30" fixed-text="true" size="50" />
+        <prop name="ROWID" visible="0" type="T" />
+        <prop name="MAP_IMEI" visible="0" type="T" />
+        <prop name="MAP_VERSIONAPP" visible="0" type="T" />
+        <prop name="MAP_PLATFORM" visible="0" type="T" />        
+        <prop name="MAP_VERSIONFRAMEWORK" visible="0" type="T" />
+        <prop name="MAP_MID" visible="0" type="T" />
+        <prop name="MAP_VERSIONBD" visible="0" type="T" />
+		<prop name="SERIE_PEDIDOS" visible="0" type="N" />		
+		<prop name="SERIE_PARTES" visible="0" type="N" />	
+		<prop name="COD" visible="0" type="T" size="8" />
+		<prop name="ADMIN" visible="0" type="N" />
+		<prop name="TELEFONO" visible="0" type="T" size="12" />
+		<prop name="IMEI" visible="0" type="T" size="40" />
+		<prop name="MODELO" visible="0" type="T" size="40" />
+		<prop name="MAP_OS" visible="0" type="T" size="40" />		
+		<prop name="QL_USERNAME" visible="0" type="T" size="8" />
+		<prop name="QL_PASSWD" visible="0" type="T" size="8" />
+		<prop name="QL_NOMFIC" visible="0" type="T" size="15" />
+		<prop name="MAIL_USERNAME" visible="0" type="T" size="25" />
+		<prop name="MAIL_PASSWD" visible="0" type="T" size="12" />
+		<prop name="EMAIL_MUESTRAS" visible="0" type="T" size="25" />
+		<prop name="ITX_ERP" visible="0" type="N" size="8" />
+		<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+		<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+		<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />
+      </group>
+    </coll>

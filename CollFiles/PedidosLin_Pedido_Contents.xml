@@ -1,0 +1,37 @@
+﻿<coll name="PedidosLin_Pedido_Contents" title="PedidosLin_Basic"
+sql="SELECT t1.*,a.DESCRIP AS MAP_ARTICULO,a.GAUNITIP_UNI1 AS MAP_GAUNITIP_UNI1,a.GAUNITIP_UNI2 AS MAP_GAUNITIP_UNI2     FROM ##PREF##PedidosLin t1   inner join ##PREF##Articulos a ON a.ID=t1.IDARTICULO" objname="PedidosLin" updateobj="PedidosLin" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDPEDIDO" visible="0" type="N" size="8" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDARTICULO" visible="0" type="N" size="8" />	
+	<prop name="N_LIN" visible="0" type="N" size="8" width="10%" labelwidth="0" /> 	
+	<prop name="MAP_ARTICULO" visible="7" type="T" size="4" width="70%" labelwidth="0" />	
+	<prop name="MAP_GAUNITIP_UNI2" visible="7" type="T" size="4" width="15%" labelwidth="0" newline="false" />	
+	<prop name="C_UNI2" visible="7" type="N2" size="4" width="15%" labelwidth="0" newline="false" />
+	<prop name="MAP_GAUNITIP_UNI1" visible="0" type="T" size="4" width="10%" />
+	<prop name="C_UNI1" visible="0" type="N2" size="4" width="10%" />
+
+	<prop name="N_PEDIDO" visible="0" type="N" size="8" />
+	<prop name="TYPE" visible="0" type="T" size="8" />
+	<prop name="DESCRIP" visible="0" type="T" size="4000" />	
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />      
+  </group>
+  <create>		
+		<action name="setval" field="IDEMPRESA" value="##ENTID##" /> 
+  </create>		  
+        <selecteditem show-wait-dialog="false" refresh="false">
+        <action name="runscript">
+          <script language="VBScript">  
+		           if not this.ownercollection.ownerobject is nothing then
+					             this.ownercollection.ownerobject("MAP_IDPEDIDOLIN")=this("ID")
+					             ui.RefreshContentSelectedRow "PedidosLin_Pedido_Contents"
+		           end if  
+		   </script>
+        </action>
+      </selecteditem>  
+</coll>

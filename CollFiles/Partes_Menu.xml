@@ -1,0 +1,193 @@
+﻿<coll name="Partes_Menu" title="el Parte_Menu"
+sql="SELECT t1.* from ##PREF##Partes t1" objname="Partes" updateobj="Partes" progid="ASData.CASBasicDataObj" filter="" sort="">
+<!-- ##### GRUPO  1. PARTES ##### -->  
+     <group name="Partes" id="1">
+     <!-- ## Frame Cabecera ## --> 
+       <frame name="cabecera1" width="100%" height="7%" scroll="false" orientation="top" bgcolor="#094c9b,#05264e">
+           <prop name="MAP_ICON1" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" locked="true" />
+            <prop name="MAP_CABECERA1" visible="1" type="TL" class="labelcab" title="INGAPAN Mobile CRM -  PARTES" />
+       </frame>     
+        <!-- ## Frame Pestañas Parte## -->  
+        <frame name="frm_pestanas_Parte" width="100%" height="7%" scroll="false" bgcolor="#ffda6b" framebox="true" border-width="3" align="center">
+          <prop name="MAP_TABPARTE" type="N" visible="0" />
+		  <prop name="MAP_BTGROUPPARTE1" visible="1" type="B" class="botongrupo" bgcolor="##FLD_MAP_BTIMGPARTE1##" caption="En Curso" onchange="refresh" method="Executenode(menuparte(1))" title="" />
+          <prop name="MAP_BTGROUPPARTE2" visible="1" type="B" class="botongrupo" newline="false" lmargin="1" bgcolor="##FLD_MAP_BTIMGPARTE2##" caption="Cerrados" onchange="refresh" method="Executenode(menuparte(2))" title="" />
+          <prop name="MAP_BTIMGPARTE1" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMGPARTE2" visible="0" type="T" group="1" />
+		</frame>
+	
+
+		<!-- ## Frame Parte 1 ## --> 
+        <frame name="frm_Parte_1" height="70%" width="40%" disablevisible="MAP_TABPARTE&lt;&gt;1" framebox="true">
+          <prop name="MAP_LBDATOSPARTE" visible="1" type="TL" class="label2" width="25%" title="Datos Parte" tmargin="1" />
+         	<prop name="FECHA" visible="1" type="D" size="40" width="90%" caption="Fecha" labelwidth="8" tmargin="5" lmargin="1" />
+         	<prop name="LOCALIDADES" visible="1" type="T" size="40" width="90%" caption="Localidad" labelwidth="8" tmargin="2" lmargin="1" />
+         	<prop name="KM_SALIDA" visible="1" type="N" size="40" width="90%" caption="KM. Salida" labelwidth="8" tmargin="2" lmargin="1" />
+         	<prop name="KM_LLEGADA" visible="1" type="N" size="40" width="90%" caption="KM. Llegada" labelwidth="8" tmargin="2" lmargin="1" />
+         	<prop name="NOTAS" visible="1" type="T" size="40" width="90%" caption="Notas" labelwidth="8" tmargin="2" lmargin="1" lines="5" fixed-lines="true" />
+
+         	<prop name="FECHA_CIERRE" visible="0" type="N" size="40" />
+         	<prop name="CERRADO" visible="0" type="T" size="40" />
+         	<prop name="IDUSUARIO" visible="0" type="N" size="40" />
+         	<prop name="IDEMPRESA" visible="0" type="N" size="40" />
+         	<prop name="IDCLIENTE" visible="0" type="N" size="40" />
+         	<prop name="IDRAZONSOCIAL" visible="0" type="N" size="40" />
+
+		</frame>   
+		<!-- ## Frame Parte 2 ## --> 
+        <frame name="frm_Parte_2" height="70%" width="60%" disablevisible="MAP_TABPARTE&lt;&gt;1" newline="false" framebox="true">
+ 		 <prop name="MAP_IDLINEAPARTESEL" visible="0" type="N" size="8" />        
+          <prop name="MAP_LBLINEASPARTE" visible="1" type="TL" class="label2" width="25%" title="Lineas" tmargin="2" lmargin="1" />
+          <prop name="MAP_BTNUEVALINEA" visible="1" type="B" class="botonmenu" icon="bt-mas-black.png" newline="false" postonchange="refresh255" method="Executenode(nuevalineaparte)" title="" tmargin="2" lmargin="3" />
+          <prop name="MAP_BTBORRARLINEA" visible="1" type="B" class="botonmenu" icon="bt-menos-black.png" onchange="refresh255" method="Executenode(borrarlineaparte)" title="" newline="false" tmargin="2" lmargin="3" />
+	
+		  <prop name="Lineas_Parte_Contents" labelwidth="0" width="100%" height="80%" type="Z" class="z_contents" visible="1" contents="Lineas_Parte_Contents" />
+          <contents name="Lineas_Parte_Contents" src="Lineas_Parte_Contents" filter="t1.IDPARTE=##FLD_ID## and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+        </frame>   
+        
+        <!-- ## Frame Filtro de clientes pedido## --> 
+        <frame name="frm_datos_filtro_Parte" width="100%" height="15%" scroll="false" disablevisible="MAP_TABPARTE&lt;&gt;2">
+            <prop name="MAP_LBCLIENTESPEDIDOFILTRAR" visible="1" type="TL" class="label2" width="25%" title="Datos Filtro" tmargin="1" />
+         	<prop name="MAP_FECHAPARTE_FILTRO" visible="1" type="D" size="40" width="35%" tooltip="Fecha" labelwidth="0" tmargin="2" lmargin="1" />
+         	<prop name="MAP_LOCALIDAD_FILTRO" visible="1" type="T" newline="false" size="40" width="40%" tooltip="Localidad" labelwidth="0" tmargin="2" lmargin="1" />
+            <prop name="MAP_FILTRARPARTES" visible="1" type="B" class="botonmenu" newline="false" lmargin="1" tmargin="1" icon="bt-find-black.png" onchange="refresh" method="Executenode(filtrarpartescerrados)" title="" />          
+
+		</frame>
+		<!-- ## Frame Contents de Clientes pedido ## --> 
+        <frame name="frm_listadoClienesPedido" height="55%" width="100%" disablevisible="MAP_TABPARTE&lt;&gt;2">
+          <prop name="MAP_LBCLIENTESCONTENTSPARTES1" visible="1" type="TL" class="label2" width="20%" title=" Fecha" tmargin="2" />
+          <prop name="MAP_LBCLIENTESCONTENTSPARTES2" visible="1" type="TL" class="label2" width="40%" newline="false" title=" Localidades" tmargin="2" />
+          <prop name="MAP_LBCLIENTESCONTENTSPARTES3" visible="1" type="TL" class="label2" width="12%" newline="false" title="  Efectivo" tmargin="2" />
+          <prop name="MAP_LBCLIENTESCONTENTSPARTES4" visible="1" type="TL" class="label2" width="12%" newline="false" title="  Tarjeta" tmargin="2" />
+          <prop name="MAP_LBCLIENTESCONTENTSPARTES5" visible="1" type="TL" class="label2" width="16%" newline="false" title="   Total" tmargin="2" />
+	     
+		  <prop name="Partes_Cerrados_Contents" labelwidth="0" width="100%" height="90%" type="Z" class="z_contents" visible="1" contents="Partes_Cerrados_Contents" />
+          <contents name="Partes_Cerrados_Contents" src="Partes_Cerrados_Contents" filter="t1.CERRADO='S'" sort="t1.ID DESC" />
+        </frame> 
+		<!-- ## Frame botones edicion pedido## -->  
+        <frame name="frm_barrabotones" width="100%" height="10%" scroll="false" bgcolor="#fefefe,#bbbcbe" align="center" framebox="true" border-width="3">
+          <prop name="MAP_BT1" visible="1" type="B" class="botonmenu" icon="bt_back_black.png" onchange="refresh" method="Executenode(exit)" title="" />
+          <prop name="MAP_BT3" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="bt_save_black.png" onchange="refresh255" method="Executenode(salvarparte)" title="" disablevisible="MAP_TABPARTE&lt;&gt;1" />          
+          <prop name="MAP_BT2" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="bt-okbox-black.png" onchange="refresh255" method="Executenode(cerrarparte)" title="" disablevisible="MAP_TABPARTE&lt;&gt;1" />          
+          <prop name="MAP_BUTTONSELECT" visible="0" type="N" />
+		</frame>
+		<!-- ## Frame Bara Estado## -->  
+        <frame name="frm_barraestado" width="100%" height="6%" scroll="false" bgcolor="#05264e" align="right" orientation="bottom">
+          <prop name="MAP_DATOSESTADO" visible="0" type="T" />
+          <prop name="MAP_LBESTADO" visible="1" type="TL" class="labelestado" title="##FLD_MAP_DATOSESTADO##" tmargin="2" />
+        </frame>        
+     </group>
+      <prop name="MAP_IMPORTE" formula="ext.[IMPORTE]" type="N2" size="7" fieldsize="5" visible="0" />
+     
+      <ext-formula>
+        <param name="IMPORTE"
+sql="select sum(IMPORTE) as N from gen_lineasparte t1 where t1.IDPARTE=##FLD_ID## and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" field="N" type="N2" />
+        
+      </ext-formula>     
+      <create>
+		<action name="setval" field="FECHA" value="##NOW_TIME##" />  
+		<action name="setval" field="IDUSUARIO" value="##USERID##" /> 		
+		<action name="setval" field="IDEMPRESA" value="##ENTID##" />       
+        <action name="runscript">
+          <script language="VBScript">   
+				'Cargamos datos de barra de estado
+				this("MAP_DATOSESTADO")=CargarBarraEstado()		
+				this("CERRADO")="N"
+				CargarIconosParte 1
+				CargarGruposParte 1
+				this.save
+          </script>
+        </action>
+      </create>
+      <before-edit>     
+        <action name="runscript">
+          <script language="VBScript">   
+				'Cargamos datos de barra de estado
+				this("MAP_DATOSESTADO")=CargarBarraEstado()		
+				CargarIconosParte 1
+				CargarGruposParte 1
+          </script>
+        </action>
+      </before-edit>      
+      <menuparte show-wait-dialog="false">
+        <action name="runscript">
+          <param name="nmenu" />
+          <script language="VBScript">
+                    'Cargamos pestaña virtual
+      			
+      				CargarIconosParte nmenu
+      				CargarGruposParte nmenu
+                  </script>
+        </action>
+      </menuparte>        
+      <onback show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		
+      		</script>
+        </action>
+      </onback>     
+      <exit show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript"> 
+          		    if LB_MsgYesNo ("Desea salir del parte?") then
+	          			appdata.failwithmessage -11888,"##EXIT##"
+	          	    end if
+      		</script>
+        </action>
+      </exit> 
+         
+      <salvarparte show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		    if LB_MsgYesNo ("Desea guardar el  parte actual sin cerrarlo?") then
+
+          		        this.save
+	          			appdata.failwithmessage -11888,"##EXIT##"
+	          	    end if        
+          	
+      		</script>
+        </action>
+      </salvarparte>
+      <cerrarparte show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		    if LB_MsgYesNo ("Desea cerrar el  parte?") then
+          		        this("FECHA_CIERRE")=now
+          		        this("CERRADO")="S"
+          		       ' this("IMPORTE")=this("MAP_IMPORTE")
+          		        this.save
+          		        LB_RemarcarRegistro "gen_partes",this("ID")	
+	          			appdata.failwithmessage -11888,"##EXIT##"
+
+	          	    end if          		
+      		</script>
+        </action>
+      </cerrarparte> 
+      <nuevalineaparte show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+       			'Vamos a crear una nueva linea de parte
+ 					NuevaLineaParte
+				          			
+      		</script>
+        </action>
+      </nuevalineaparte>
+      <borrarlineaparte show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+                if this("MAP_IDLINEAPARTESEL")&gt;0 then
+      			     BorrarLineaParte cstr(this("MAP_IDLINEAPARTESEL"))     	
+      			end if
+      		</script>
+        </action>
+      </borrarlineaparte>
+      <filtrarpartescerrados show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+       
+          	
+      		</script>
+        </action>
+      </filtrarpartescerrados>      
+    </coll>

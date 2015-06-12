@@ -1,0 +1,24 @@
+﻿<coll name="Alertas_Basic" title="Alertas_Basic"
+sql="SELECT t1.ID     FROM ##PREF##Alertas t1" objname="Alertas" updateobj="Alertas" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDUSUARIO" visible="0" type="N" size="8" />
+	<prop name="IDCLIENTE" visible="0" type="N" size="8" />	
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDTIPOALERTA" visible="0" type="N" size="8" />	
+ 	
+	<prop name="FECHA_CIERRE" visible="0" type="D" size="8" /> 	
+
+	<prop name="TYPE" visible="0" type="N" size="8" />
+
+    <prop name="F_DESDE" visible="7" type="D" size="8" width="50%" labelwidth="6" title="Fecha Desde:" /> 	
+	<prop name="F_HASTA" visible="7" type="D" size="8" width="50%" labelwidth="6" newline="false" title="Fecha Hasta:" /> 	
+	<prop name="CERRADA_SN" visible="7" type="NC" size="8" width="10%" labelwidth="6" title="Cerrada" />
+	<prop name="COMENTARIO" visible="7" type="T" size="400" width="90%" title="Comentacion" labelwidth="0" />
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />      
+  </group>
+</coll>

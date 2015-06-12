@@ -1,0 +1,20 @@
+﻿<coll name="Versiones" title="Versiones"
+sql="SELECT *,'##FRAME_VERSION##' AS MAP_VERSIONFRAME,'##VERSION##' AS MAP_VERSIONAPP,         '##DEVICEID##' AS MAP_IMEI,##MID## AS MAP_MID               FROM ##PREF##versiones t1" autorefresh="true" objname="Versiones" updateobj="Versiones" progid="ASData.CASBasicDataObj">
+      <group name="GENERAL" id="1">
+        <prop name="MID" visible="7" fieldsize="3" type="N" />
+        <prop name="VERSION_BD" visible="1" fieldsize="25" type="T" />
+        <prop name="VERSION_APP" visible="1" fieldsize="25" type="T" />
+        <prop name="IMEI" visible="1" fieldsize="25" type="T" />
+        <prop name="VERSION_FRAMEWORK" visible="1" fieldsize="25" type="T" />
+        <prop name="FECHA_LOGIN" visible="1" fieldsize="25" type="D" />
+        <prop name="USER" visible="1" fieldsize="80" type="T" />
+        <prop name="TEXT1" visible="1" fieldsize="25" type="T" />
+        <prop name="TEXT2" visible="1" fieldsize="25" type="T" />
+        <prop name="FECHA1" visible="1" fieldsize="25" type="D" />
+        <prop name="FECHA2" visible="1" fieldsize="25" type="D" />
+        <prop name="MAP_VERSIONAPP" type="T" visible="0" labelwidth="6" fieldsize="7" title="Aplicacion" newline="false" />
+        <prop name="MAP_VERSIONFRAME" type="T" visible="0" labelwidth="8" fieldsize="11" title="FrameXOne" newline="false" />
+        <prop name="MAP_MID" type="T" visible="0" labelwidth="6" fieldsize="7" newline="false" title="MID" />
+        <prop name="MAP_IMEI" type="T" visible="0" labelwidth="6" fieldsize="7" newline="false" title="MID" />
+      </group>
+    </coll>

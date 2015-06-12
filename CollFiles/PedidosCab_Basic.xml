@@ -1,0 +1,22 @@
+﻿<coll name="PedidosCab_Basic" title="PedidosCab_Basic"
+sql="SELECT t1.ID     FROM ##PREF##PedidosCab t1" objname="PedidosCab" updateobj="PedidosCab" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDUSUARIO" visible="0" type="N" size="8" />
+	<prop name="IDCLIENTE" visible="0" type="N" size="8" />	
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDRAZONSOCIAL" visible="0" type="N" size="8" />
+	<prop name="F_PEDIDO" visible="0" type="D" size="8" /> 	
+	<prop name="N_PEDIDO" visible="0" type="N" size="8" />
+	<prop name="TYPE" visible="0" type="T" size="8" />
+	<prop name="SU_REF_PED" visible="0" type="T" size="100" />
+	<prop name="OBSERVACION" visible="0" type="T" size="400" />	
+	<prop name="TRAILES_SN" visible="0" type="N" size="1" />
+    
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />      
+  </group>
+</coll>

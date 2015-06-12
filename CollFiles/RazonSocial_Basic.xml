@@ -1,0 +1,15 @@
+﻿<coll name="RazonSocial_Basic" title="RazonSocial"
+sql="SELECT t1.ID     FROM ##PREF##RazonSocial t1" objname="RazonSocial" updateobj="RazonSocial" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+    <prop name="IDEMPRESA" visible="0" type="N" size="8" />      
+	<prop name="COD" visible="7" type="T" size="15" width="20%" labelwidth="0" />
+	<prop name="NOMBRE" visible="7" type="T" size="40" width="70%" labelwidth="0" newline="false" />
+
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />        
+  </group>
+</coll>

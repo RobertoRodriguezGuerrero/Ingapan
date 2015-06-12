@@ -1,0 +1,7 @@
+﻿<coll name="Ficheros0" fontsize="8" title="ReplicaFiles" objname="master_replica_files" updateobj="master_replica_files" progid="ASData.CASBasicDataObj"
+sql="SELECT *                   FROM ##PREF##master_replica_files" filter="STATUS!=201 AND REPLICATYPE=1" cell-bgcolor="#FFFFFF" cell-height="50" show-selected-item="false" check-owner="false" dependent="false" connection="Info_ReplicaFiles" loadall="false" show-toolbar="true" editmask="8">
+      <connection prefix="" name="Info_ReplicaFiles" connstring="Provider=Xone Remote Provider;Data Source=local;ProgID=com.xone.db.impl.replicafiles.RplFilesConnection;Timeout=60" />
+      <group name="General" id="1">
+        <prop name="FILENAME" wrap="true" visible="0" fieldsize="10" type="T" size="20" />
+      </group>
+    </coll>

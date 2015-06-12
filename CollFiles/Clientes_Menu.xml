@@ -1,0 +1,337 @@
+﻿<coll name="Clientes_Menu" title="Clientes_Menu"
+sql="SELECT t1.*,t1.XLATITUD||' / '||t1.XLATITUD AS MAP_GPS,t2.COD AS MAP_CODRAZONSOCIAL,t2.NOMBRE AS MAP_NOMBRERAZONSOCIAL FROM ##PREF##Clientes t1   left outer join ##PREF##RazonSocial t2 ON t2.ID=t1.IDRAZONSOCIAL" objname="Clientes" updateobj="Clientes" progid="ASData.CASBasicDataObj" filter="" sort="">
+
+<!-- ##### GRUPO GENERAL DE DATOS CLIENTE##### -->  
+      <group name="general" id="1">
+        <!-- ## Frame Cabecera Datos Cliente## -->  
+        <frame name="frm_cabecera" width="100%" height="7%" scroll="false" orientation="top" bgcolor="#094c9b,#05264e">
+          <prop name="MAP_ICON1" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" locked="true" />
+          <prop name="MAP_CABECERA" visible="1" type="TL" class="labelcab" title="##FLD_MAP_LABELCABECERA##" />
+          <prop name="MAP_LABELCABECERA" type="T" visible="0" />
+        </frame> 
+        <!-- ## Frame Pestañs clientes## -->  
+        <frame name="frm_pestanas_Cliente" width="100%" height="7%" scroll="false" bgcolor="#ffda6b" framebox="true" border-width="3" align="center">
+          <prop name="MAP_TABCLI" type="N" visible="0" />
+		  <prop name="MAP_BTGROUPCLI1" visible="1" type="B" class="botongrupo" bgcolor="##FLD_MAP_BTIMGCLI1##" caption="Datos Cliente" onchange="refresh" method="Executenode(menucliente(1))" title="" />
+          <prop name="MAP_BTGROUPCLI2" visible="1" type="B" class="botongrupo" newline="false" lmargin="1" bgcolor="##FLD_MAP_BTIMGCLI2##" caption="Historico" onchange="refresh" method="Executenode(menucliente(2))" title="" />
+          <prop name="MAP_BTGROUPCLI3" visible="1" type="B" class="botongrupo" newline="false" lmargin="1" bgcolor="##FLD_MAP_BTIMGCLI3##" caption="Pedidos" onchange="refresh" method="Executenode(menucliente(3))" title="" />
+          <prop name="MAP_BTGROUPCLI4" visible="1" type="B" class="botongrupo" newline="false" lmargin="1" bgcolor="##FLD_MAP_BTIMGCLI4##" caption="Condiciones" onchange="refresh" method="Executenode(menucliente(4))" title="" />
+          <prop name="MAP_BTGROUPCLI5" visible="1" type="B" class="botongrupo" newline="false" lmargin="1" bgcolor="##FLD_MAP_BTIMGCLI5##" caption="QLikView" onchange="refresh" method="Executenode(menucliente(5))" title="" />
+          <prop name="MAP_BTGROUPCLI6" visible="1" type="B" class="botongrupo" newline="false" lmargin="1" bgcolor="##FLD_MAP_BTIMGCLI6##" caption="Alertas" onchange="refresh" method="Executenode(menucliente(6))" title="" />
+          <prop name="MAP_BTGROUPCLI7" visible="1" type="B" class="botongrupo" newline="false" lmargin="1" bgcolor="##FLD_MAP_BTIMGCLI7##" caption="Maquinaria" onchange="refresh" method="Executenode(menucliente(7))" title="" />
+          <prop name="MAP_BTIMGCLI1" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMGCLI2" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMGCLI3" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMGCLI4" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMGCLI5" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMGCLI6" visible="0" type="T" group="1" />
+          <prop name="MAP_BTIMGCLI7" visible="0" type="T" group="1" />
+          <prop name="MAP_BUTTONSELECT" visible="0" type="N" />        
+		</frame>
+		<!-- ## Frame Datos del cliente 1## -->  
+        <frame name="frm_datos_Cliente" width="100%" height="40%" scroll="false" disablevisible="MAP_TABCLI&lt;&gt;1">
+			<prop name="COD" visible="1" type="T" size="8" width="45%" title="Codigo" labelwidth="6" tmargin="4" locked="true" />
+         	<prop name="MONEDAS_COD" visible="1" type="T" size="8" width="45%" title="Moneda" labelwidth="6" tmargin="4" lmargin="2" newline="false" locked="true" />
+         	<prop name="NOMBRE" visible="1" type="T" size="8" width="45%" title="Nombre" labelwidth="6" tmargin="2" locked="true" />
+         	<prop name="IDIOMAS_COD" visible="1" type="T" size="8" width="45%" title="Idioma" labelwidth="6" tmargin="2" lmargin="2" newline="false" locked="true" />
+         	<prop name="MAP_CODRAZONSOCIAL" visible="1" type="T" size="8" width="45%" title="Cod. RS" labelwidth="6" tmargin="2" locked="true" />
+         	<prop name="GGESTADO_COD" visible="1" type="T" size="8" width="45%" title="Estado" labelwidth="6" tmargin="2" lmargin="2" newline="false" locked="true" />
+         	<prop name="MAP_NOMBRERAZONSOCIAL" visible="1" type="T" size="8" width="45%" title="Nombre RS" labelwidth="6" tmargin="2" locked="true" />
+         	<prop name="F_ALTA" visible="1" type="D" size="8" width="22%" title="F Alta" labelwidth="4" tmargin="2" lmargin="2" newline="false" locked="true" />
+         	<prop name="F_ULT_OPE" visible="1" type="D" size="8" width="22%" title="F Edit" labelwidth="4" tmargin="2" lmargin="1" newline="false" locked="true" />
+         	<prop name="WEB" visible="1" type="T" size="8" width="45%" title="Web" labelwidth="6" tmargin="4" locked="true" />
+         	<prop name="MAP_GPS" visible="1" type="T" size="8" width="40%" title="GPS" labelwidth="6" tmargin="4" lmargin="2" newline="false" locked="true" />
+  		    <prop name="MAP_VERMAPA" visible="1" type="B" class="boton2" lmargin="2" tmargin="3" title="" img="bt-gps-black.png" labelwidth="0" method="Executenode(mapa)" fieldsize="0" onchange="refresh" newline="false" />          
+
+      		<prop group="1" frame="frm_datos_Cliente" name="MAP_MAPA" title=" " newline="false" type="Z" visible="0" class="boton2" viewmode="mapview" contents="MAPA" text-border="false" border="false" tmargin="3" bgcolor="#00000000" mask="2" img="bt-gps-black.png" imgsel="bt-gps-black.png" />
+      		<contents name="MAPA" src="Datos_Mapa" filter="t1.ID=##FLD_ID##" />
+		</frame>
+		<!-- ## Frame Lista de clientes 1# -->   
+        <frame name="frm_contents_cliente" height="30%" width="100%" disablevisible="MAP_TABCLI&lt;&gt;1">
+          <prop name="MAP_LBCONTACTOSCONTENTS" visible="1" type="TL" class="label2" width="50%" title="Contactos" />
+          <prop name="MAP_LBDIRCONTENTS" visible="1" type="TL" class="label2" width="50%" title="Direcciones" newline="false" />
+		  <prop name="Contactos_Contents" labelwidth="0" width="50%" height="90%" type="Z" class="z_contents" visible="1" contents="Contactos_Contents" />
+          <contents name="Contactos_Contents" src="Contactos_Basic" filter="t1.IDRAZONSOCIAL=##FLD_IDRAZONSOCIAL## and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+          <prop name="Direcciones_Contents" labelwidth="0" width="50%" height="90%" type="Z" class="z_contents" visible="1" contents="Direcciones_Contents" newline="false" />
+          <contents name="Direcciones_Contents" src="Direcciones_Basic" filter="t1.IDRAZONSOCIAL=##FLD_IDRAZONSOCIAL## and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />          
+        </frame>      
+
+		<!-- ## Frame Historico 2# -->  
+        <frame name="frm_contents_historico" height="70%" width="100%" disablevisible="MAP_TABCLI&lt;&gt;2">
+	      <prop name="MAP_IDTIPOMENSAJEAGENDA" visible="0" type="N" size="8" mapcol="TiposMensajeAgenda_Basic" mapfld="ID" onchange="refresh255" />
+		  <prop name="MAP_CATEGORIA" visible="1" type="T" newline="false" linkedto="MAP_IDTIPOMENSAJEAGENDA" linkedfield="DESCRIP" size="40" width="45%" title="Categoria: " labelwidth="8" tmargin="2" />
+            <prop name="MAP_BT_LIMPIAR" visible="1" type="B" newline="false" class="boton2" icon="bt-x-black.png" onchange="refresh" method="Executenode(limpiartipoagenda)" title="" tmargin="2" lmargin="0" />
+
+			<prop name="MAP_LBHISTORICOCONTENTS" visible="1" type="TL" class="label2" width="50%" title="Historico" tmargin="1" />
+		  <prop name="Historico_Contents" labelwidth="0" width="100%" height="81%" type="Z" class="z_contents" visible="1" contents="Historico_Contents" onchange="refresh255" postonchange="refresh" />
+          <contents name="Historico_Contents" src="Agenda_Contents" filter="(t1.IDTIPOMENSAJEAGENDA=##FLD_MAP_IDTIPOMENSAJEAGENDA## or ##FLD_MAP_IDTIPOMENSAJEAGENDA##=0) and  t1.IDCLIENTE=##FLD_ID## and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+        </frame>      
+
+		<!-- ## Frame Pedidos 3# -->  
+        <frame name="frm_contents_pedidos" height="70%" width="100%" disablevisible="MAP_TABCLI&lt;&gt;3">
+	      <prop name="MAP_IDFILTROPEDIDO" visible="0" type="N" size="8" mapcol-values="Ultima Semana,Ultimo Mes,Todos" mapfld="ID" onchange="refresh255" />
+		  <prop name="MAP_FILTROPEDIDO" visible="1" type="T" newline="false" linkedto="MAP_IDFILTROPEDIDO" linkedfield="DATA" size="40" width="45%" title="Filtro: " labelwidth="8" tmargin="2" />
+          <prop name="MAP_BTNUEVOPEDIDO" visible="1" type="B" class="botonmenu" icon="bt-mas-black.png" onchange="refresh" postonchange="refresh" method="Executenode(nuevopedido)" title="" newline="false" tmargin="1" />
+
+		  <prop name="MAP_LBPEDIDOSCONTENTS" visible="1" type="TL" class="label2" width="50%" title="Pedidos" tmargin="1" />
+          <prop name="MAP_LBLINEASCONTENTS" visible="1" type="TL" class="label2" width="50%" title="Lineas" newline="false" tmargin="1" />
+		  <prop name="PedidosCab_Contents" labelwidth="0" width="50%" height="81%" type="Z" class="z_contents" visible="1" contents="PedidosCab_Contents" />
+          <contents name="PedidosCab_Contents" src="PedidosCab_Contents" filter="t1.IDCLIENTE=##FLD_ID## and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+	      <prop name="MAP_IDPEDIDOSEL" visible="0" type="N" size="8" />
+		  <prop name="PedidosLin_Contents" labelwidth="0" width="50%" height="81%" type="Z" class="z_contents" visible="1" contents="PedidosLin_Contents" newline="false" />
+          <contents name="PedidosLin_Contents" src="PedidosLin_Contents" filter="t1.IDPEDIDO=##FLD_MAP_IDPEDIDOSEL## and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />   
+        </frame>      
+		<!-- ## Frame Condiciones 4# -->  
+        <frame name="frm_contents_condiciones" height="70%" width="100%" disablevisible="MAP_TABCLI&lt;&gt;4">
+          <prop name="MAP_LBCONDICIONESCONTENTS" visible="1" type="TL" class="label2" width="50%" title="Condiciones" tmargin="2" />
+		  <prop name="Condiciones_Contents" labelwidth="0" locked="true" width="100%" height="90%" type="Z" class="z_contents" visible="1" contents="Condiciones_Contents" />
+          <contents name="Condiciones_Contents" src="Condiciones_Contents" filter="t1.IDCLIENTE=##FLD_ID## and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+        </frame> 
+
+		<!-- ## Frame QLikView 5## -->  
+        <frame name="frm_qlikview" height="70%" width="100%" disablevisible="MAP_TABCLI&lt;&gt;5">
+          <prop name="MAP_LIKVIEW" visible="1" class="html" type="WEB" width="100%" height="100%" scroll="false" webview-username="##FLD_MAP_USERWEB##" webview-password="##FLD_MAP_PWDWEB##" />
+          <prop name="MAP_USERWEB" visible="0" type="T" group="1" />
+          <prop name="MAP_PWDWEB" visible="0" type="T" group="1" />          
+        </frame>    
+		<!-- ## Frame Alertas 6# -->  
+        <frame name="frm_datos_filtro_Alertas" width="100%" height="27%" scroll="false" disablevisible="MAP_TABCLI&lt;&gt;6">
+            <prop name="MAP_LBALERTASFILTRAR" visible="1" type="TL" class="label2" width="25%" title="Datos Filtro" tmargin="1" />
+	        <prop name="MAP_IDTIPOALERTA" visible="0" type="N" size="8" mapcol="TiposAlerta_Basic" mapfld="ID" onchange="refresh255" />
+		    <prop name="MAP_TIPOALERTA" visible="1" type="T" linkedto="MAP_IDTIPOALERTA" linkedfield="DESCRIP" size="40" width="25%" title="Tipo: " labelwidth="3" tmargin="2" />
+            <prop name="MAP_BT_LIMPIAR_ALERTA" visible="1" type="B" newline="false" class="boton2" icon="bt-x-black.png" onchange="refresh" method="Executenode(limpiartipoalerta)" title="" tmargin="2" lmargin="0" />
+			<prop name="MAP_FECHADESDE" visible="1" type="D" newline="false" size="40" width="15%" tooltip="Desde" labelwidth="0" tmargin="2" lmargin="1" />
+         	<prop name="MAP_FECHAHASTA" visible="1" type="D" newline="false" size="40" width="15%" tooltip="Hasta" labelwidth="0" tmargin="2" lmargin="0" />
+         	<prop name="MAP_COMENTARIO" visible="1" type="T" newline="false" size="40" width="20%" tooltip="Comentario" labelwidth="0" tmargin="2" lmargin="0" />
+            <prop name="MAP_LBCERRADAS" visible="1" type="TL" class="label2" width="8%" title="Cerradas" tmargin="2" newline="false" />
+         	<prop name="MAP_CERRADA" visible="1" type="NC" newline="false" size="40" title=" " labelwidth="0" tmargin="1" lmargin="0" />
+            <prop name="MAP_FILTRARALERTAS" visible="1" type="B" class="botonmenu" newline="false" lmargin="1" tmargin="1" icon="bt-find-black.png" onchange="refresh" method="Executenode(filtraralertas)" title="" />          
+            <prop name="MAP_LBALERTASEL" visible="1" type="TL" class="label2" width="25%" title="Alerta Seleccionada" tmargin="1" />
+         	<prop name="MAP_COMENTARIOSEL" visible="1" type="T" size="40" width="80%" tooltip="Comentario Alerta Seleccionada" labelwidth="0" tmargin="2" lmargin="1" />
+            <prop name="MAP_BT_CERRARSEL" visible="1" type="B" newline="false" class="boton2" icon="bt-okbox-black.png" onchange="refresh" method="Executenode(cerraralerta)" title="" tmargin="1" lmargin="1" />
+         	<prop name="MAP_CERRADASEL" visible="0" type="N" />
+         	<prop name="MAP_IDALERTASEL" visible="0" type="N" />
+		</frame>
+		
+        <frame name="frm_contents_alertas" height="43%" width="100%" disablevisible="MAP_TABCLI&lt;&gt;6">
+          <prop name="MAP_LBALERTASCONTENTS1" visible="1" type="TL" class="label2" width="20%" title=" Tipo Alerta" tmargin="2" />
+          <prop name="MAP_LBALERTASCONTENTS2" visible="1" type="TL" newline="false" class="label2" width="35%" title="  Cliente" tmargin="2" />
+          <prop name="MAP_LBALERTASCONTENTS3" visible="1" type="TL" newline="false" class="label2" width="20%" title="  F. Desde" tmargin="2" />
+          <prop name="MAP_LBALERTASCONTENTS4" visible="1" type="TL" newline="false" class="label2" width="20%" title="  F. Hasta" tmargin="2" />
+          <prop name="MAP_LBALERTASCONTENTS5" visible="1" type="TL" newline="false" class="label2" width="5%" title="    C" tmargin="2" />
+		  <prop name="Alertas_Contents" labelwidth="0" width="100%" height="90%" type="Z" class="z_contents" visible="1" contents="Alertas_Contents" />
+          <contents name="Alertas_Contents" src="Alertas_Contents" filter="t1.CERRADA_SN=0 and t1.IDCLIENTE=##FLD_ID## and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" />
+        </frame> 
+        <!-- ## Frame Maquinaria 7# -->  
+        <frame name="frm_contents_maquinaria" height="70%" width="100%" disablevisible="MAP_TABCLI&lt;&gt;7">
+          <prop name="MAP_LBMAQUINARIACONTENTS" visible="1" type="TL" class="label2" width="50%" title="Maquinaria" tmargin="2" />
+		  <prop name="Estadisticas_Contents" labelwidth="0" width="100%" height="90%" type="Z" class="z_contents" visible="1" contents="Estadisticas_Contents" />
+          <contents name="Estadisticas_Contents" src="Estadisticas_Contents3" filter="t1.IDCLIENTE=##FLD_ID## and t1.GGALBTIP_COD like '%MQ%'" />
+        </frame> 
+		<!-- ## Frame botones edicion cliente## -->  
+        <frame name="frm_barrabotones" width="100%" height="10%" scroll="false" bgcolor="#fefefe,#bbbcbe" align="center" framebox="true" border-width="3">
+          <prop name="MAP_BT1" visible="1" type="B" class="botonmenu" icon="bt_back_black.png" onchange="refresh" method="Executenode(exit)" title="" />
+          <prop name="MAP_BT2" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="bt_gps2_black.png" onchange="refresh255" method="Executenode(gps)" title="" />          
+
+		</frame>
+		<!-- ## Frame Bara Estado## -->  
+        <frame name="frm_barraestado" width="100%" height="6%" scroll="false" bgcolor="#05264e" align="right" orientation="bottom">
+          <prop name="MAP_DATOSESTADO" visible="0" type="T" />
+          <prop name="MAP_LBESTADO" visible="1" type="TL" class="labelestado" title="##FLD_MAP_DATOSESTADO##" tmargin="2" />
+        </frame>
+     </group>
+    
+
+    <prop name="IDRAZONSOCIAL" type="N" visible="0" />
+    <prop name="ID" type="N" visible="0" />
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" /> 
+	
+      <before-edit show-wait-dialog="false">		
+		<action name="runscript">
+          <script language="VBScript">   
+				'Cargamos datos de barra de estado
+				this("MAP_DATOSESTADO")=CargarBarraEstado()	
+				this("MAP_LABELCABECERA")="INGAPAN Mobile CRM  -  Cliente: "+ cstr(this("NOMBRE"))
+				'Caramos iconos de pestañas virtuales
+				CargarIconosCliente 1
+				CargarGruposCliente 1
+				this("MAP_USERWEB")=appdata.CurrentEnterprise.variables("QL_USERNAME")
+	            this("MAP_PWDWEB")=appdata.CurrentEnterprise.variables("QL_PASSWD")				
+
+	
+          </script>
+        </action>
+      </before-edit>
+      <onchange>
+        <field name="MAP_FILTROPEDIDO">
+          <action name="runscript">
+            <script language="VBScript"> 
+
+          		      select CASE this("MAP_FILTROPEDIDO")
+          		        case "Todos"
+          		          FiltrarContents "t1.IDCLIENTE=##FLD_ID## and t1.F_PEDIDO BETWEEN datetime('now', '-6 days') AND datetime('now', 'localtime') and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" ,"PedidosCab_Contents"
+             		    case "Ultima Semana"
+             		      FiltrarContents "t1.IDCLIENTE=##FLD_ID## and t1.F_PEDIDO BETWEEN datetime('now', '-6 days') AND datetime('now', 'localtime') and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" ,"PedidosCab_Contents"
+             		    case "Ultimo Mes"
+             		      FiltrarContents "t1.IDCLIENTE=##FLD_ID## and t1.F_PEDIDO BETWEEN datetime('now', 'start of month') AND datetime('now', 'localtime') and (t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" ,"PedidosCab_Contents"
+             		    end select
+						this("MAP_IDPEDIDOSEL")=0
+      		</script>
+          </action>
+         </field>
+         
+	   </onchange> 
+      <onback show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		
+      		</script>
+        </action>
+      </onback>   
+        
+      <vergrupo1 show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		LB_ShowGroup 1
+      		</script>
+        </action>
+      </vergrupo1>        
+      <mapa show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		LB_ShowForm "Mapas",this("ID")
+      		</script>
+        </action>
+      </mapa> 
+      <limpiartipoagenda show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          	  this("MAP_IDTIPOMENSAJEAGENDA")=0
+          	  this("MAP_CATEGORIA")=""
+      		</script>
+        </action>
+      </limpiartipoagenda> 
+      <menucliente show-wait-dialog="false">
+        <action name="runscript">
+          <param name="nmenu" />
+          <script language="VBScript">
+          			this("MAP_LIKVIEW")=""
+                    'Cargamos pestaña virtual
+      				this("MAP_BUTTONSELECT")=nmenu
+      				CargarIconosCliente nmenu
+      				CargarGruposCliente nmenu
+                  </script>
+        </action>
+      </menucliente>      
+
+      <gps show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		st_gps=CapturarGPS2()
+          		if st_gps&lt;&gt;""  then
+          		
+          		   if LB_MsgYesNo ("Desea actualizar la posicion GPS "+st_gps+" en el cliente?") then
+          		      this("XLATITUD")=left(st_gps,12)
+          		      this("XLONGITUD")=right(st_gps,12)
+          		      this("MAP_GPS")=st_gps
+          		      this.save
+          		   end if
+          		 else
+          		    LB_Msg "No se pudo capturar la posicion GPS. Comprobar si el GPS esta activo y si tiene cobertura"
+          		end if
+      		</script>
+        </action>
+      </gps>       
+      
+      <exit show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+                  if LB_MsgYesNo ("Desea salir de la edicion de cliente?") then
+	          			appdata.failwithmessage -11888,"##EXIT##"
+	          	  end if
+      		</script>
+        </action>
+      </exit> 
+      <save show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          			if LB_MsgYesNo ("Desea salir almacenando los cambios?") then
+          			   this("FECHA_VISITA")=left(this("FECHA_VISITA"),10) +" "+ this("MAP_HORAVISITA")
+          			   this.save
+          			   appdata.failwithmessage -11888,"##EXIT##"
+          			end if
+      		</script>
+        </action>
+      </save>    
+      <nuevopedido show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          			if LB_MsgYesNo ("Desea crear un pedido para este cliente?") then
+						  set Coll=AppData.GetCollection("Pedidos_Menu")
+						  set Item=Coll.CreateObject
+					      Coll.AddItem(Item)
+						  if not Item is nothing then
+						    Item("IDCLIENTE")=this("ID")
+		            		Item("IDRAZONSOCIAL")=this("IDRAZONSOCIAL")
+		             		Item("MAP_LBCABECERA1")="INGAPAN Mobile CRM -  PEDIDOS ("+this("NOMBRE")+")"	
+							Item("MAP_TABPED")=2		             		
+							AppData.PushValue Item
+						  end if
+						  set Item=nothing
+						  set Coll=nothing
+          			end if
+      		</script>
+        </action>
+      </nuevopedido>   
+      <limpiartipoalerta show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          	  this("MAP_IDTIPOALERTA")=0
+          	  this("MAP_TIPOALERTA")=""
+      		</script>
+        </action>
+      </limpiartipoalerta> 
+      <cerraralerta show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          	    if this("MAP_CERRADASEL")=0 then
+          	          if this("MAP_IDALERTASEL")&gt;0 then
+	          	         Msg="¿Desea cerrar la alerta seleccionada?"
+	 					 Res=LB_MsgYesNo(Msg)
+	  					 on error resume next
+	                     if Res=True then
+	                        LB_RunSQLRep "UPDATE GEN_ALERTAS SET COMENTARIO='"+this("MAP_COMENTARIOSEL")+"',CERRADA_SN=1 where ID="+cstr(this("MAP_IDALERTASEL"))
+	                     end if
+	                  else
+	                    LB_msg "Debe seleccionar una alerta"
+	                  end if
+          	    end if
+      		</script>
+        </action>
+      </cerraralerta>       
+      <filtraralertas show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		'Alpicamos filtro a menu de alertas
+          		if this("MAP_FECHADESDE")&lt;&gt;"" and this("MAP_FECHAHASTA")&lt;&gt;"" then
+          		    FiltrarContents "t1.CERRADA_SN="+cstr(this("MAP_CERRADA"))+" and t1.IDCLIENTE=##FLD_ID## and (t1.IDTIPOALERTA=##FLD_MAP_IDTIPOALERTA## or 0=##FLD_MAP_IDTIPOALERTA##) and date(t1.F_DESDE)=date(##FLD_MAP_FECHADESDE##) and date(t1.F_HASTA)=date(##FLD_MAP_FECHAHASTA##) and t1.COMENTARIO like '%"+cstr(this("MAP_COMENTARIO"))+"%' and(t1.ITX_BAJA=0 or t1.ITX_BAJA is null)","Alertas_Contents"
+          		else
+	          		if this("MAP_FECHAHASTA")&lt;&gt;"" then
+	          		    FiltrarContents "t1.CERRADA_SN="+cstr(this("MAP_CERRADA"))+" and t1.IDCLIENTE=##FLD_ID## and (t1.IDTIPOALERTA=##FLD_MAP_IDTIPOALERTA## or 0=##FLD_MAP_IDTIPOALERTA##) and date(t1.F_HASTA)=date(##FLD_MAP_FECHAHASTA##) and t1.COMENTARIO like '%"+cstr(this("MAP_COMENTARIO"))+"%' and(t1.ITX_BAJA=0 or t1.ITX_BAJA is null)","Alertas_Contents"
+	          		else
+		          		if this("MAP_FECHADESDE")&lt;&gt;"" then
+		          		    FiltrarContents "t1.CERRADA_SN="+cstr(this("MAP_CERRADA"))+" and t1.IDCLIENTE=##FLD_ID## and (t1.IDTIPOALERTA=##FLD_MAP_IDTIPOALERTA## or 0=##FLD_MAP_IDTIPOALERTA##) and date(t1.F_DESDE)=date(##FLD_MAP_FECHADESDE##) and t1.COMENTARIO like '%"+cstr(this("MAP_COMENTARIO"))+"%' and(t1.ITX_BAJA=0 or t1.ITX_BAJA is null)","Alertas_Contents"
+		          		else
+		          		    FiltrarContents "t1.CERRADA_SN="+cstr(this("MAP_CERRADA"))+" and t1.IDCLIENTE=##FLD_ID## and (t1.IDTIPOALERTA=##FLD_MAP_IDTIPOALERTA## or 0=##FLD_MAP_IDTIPOALERTA##) and t1.COMENTARIO like '%"+cstr(this("MAP_COMENTARIO"))+"%' and(t1.ITX_BAJA=0 or t1.ITX_BAJA is null)","Alertas_Contents"
+		          		end if
+					end if
+
+			    end if
+      		</script>
+        </action>
+      </filtraralertas>      
+</coll>

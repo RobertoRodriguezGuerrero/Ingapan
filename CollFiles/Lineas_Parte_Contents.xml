@@ -1,0 +1,33 @@
+﻿<coll name="Lineas_Parte_Contents" title="LineasParte_Basic"
+sql="SELECT t1.*,t2.CONCEPTO AS MAP_CONCEPTO     FROM ##PREF##LineasParte t1      INNER JOIN ##PREF##ConceptosParte t2 ON t1.IDCONCEPTO=t2.ID" objname="LineasParte" updateobj="LineasParte" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDPARTE" visible="0" type="N" size="8" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDCONCEPTO" visible="0" type="N" size="8" />		
+	<prop name="INV_QUIEN" visible="0" type="T" size="50" />
+	<prop name="KM_SALIDA" visible="0" type="N" size="8" />
+	<prop name="KM_LLEGADA" visible="0" type="N" size="8" />	
+	<prop name="TARJETA" visible="0" type="T" size="1" />
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" /> 
+	
+	<prop name="MAP_CONCEPTO" visible="7" type="T" size="40" width="35%" title="Comentario" labelwidth="0" />
+	<prop name="INV_FECHA" visible="7" type="D" size="40" width="20%" title="Fecha" labelwidth="0" newline="false" />
+	<prop name="LOCALIDAD" visible="7" type="T" size="40" width="30%" title="Localidad" labelwidth="0" newline="false" />
+	<prop name="IMPORTE" visible="7" type="N2" size="40" width="15%" title="Importe" labelwidth="0" newline="false" />		
+  </group>
+        <selecteditem>
+        <action name="runscript">
+          <script language="VBScript">
+       
+		           if not this.ownercollection.ownerobject is nothing then
+		             this.ownercollection.ownerobject("MAP_IDLINEAPARTESEL")=this("ID")
+		           end if
+		   </script>
+        </action>
+      </selecteditem>  
+</coll>

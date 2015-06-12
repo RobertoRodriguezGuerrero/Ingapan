@@ -1,0 +1,4 @@
+﻿<app prefix="gen" version="0.0.1.1" debug="true" companycolor="#094c9b,#05264e" resolution-width="768" resolution-height="1024" screen-orientation="landscape" entry-point="MenuPrincipal">
+    <style url="default.css" />
+    <style url="defaultIOS.css" conditions="ios" />	
+</app>

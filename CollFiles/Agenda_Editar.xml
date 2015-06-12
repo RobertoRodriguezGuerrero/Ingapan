@@ -1,0 +1,201 @@
+﻿<coll name="Agenda_Editar" title="Agenda_Editar"
+sql="SELECT t1.*,t2.NOMBRE AS MAP_CLIENTE,t3.DESCRIP AS MAP_TIPOMENSAJE,t4.NOMBRE AS MAP_COMPETENCIA FROM ##PREF##Agenda t1         left outer join ##PREF##Clientes t2 ON t1.IDCLIENTE=t2.ID       left outer join ##PREF##TiposMensajeAgenda t3 ON t1.IDTIPOMENSAJEAGENDA=t3.ID left outer join ##PREF##Competencia t4 ON t4.ID=t1.IDCOMPETENCIA" objname="Agenda" updateobj="Agenda" progid="ASData.CASBasicDataObj" filter="" sort="">
+<!-- ##### GRUPO 1 DATOS AGENDA ##### -->
+	<group name="general" id="1">
+     <!-- ## Frame Cabecera Agenda ## -->
+        <frame name="frm_cabecera" width="100%" height="7%" scroll="false" orientation="left" bgcolor="#094c9b,#05264e">
+          <prop name="MAP_ICON1" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" locked="true" />
+   		  <prop name="MAP_CABECERA" visible="1" type="TL" class="labelcab" title="##FLD_MAP_LABELCABECERA##" />
+          <prop name="MAP_LABELCABECERA" type="T" visible="0" />
+        </frame> 
+        <!-- ## Frame datos Agenda ## -->
+        <frame name="frm_datos_visita" width="100%" height="40%" scroll="false">
+         	<prop name="FECHA_VISITA" visible="1" type="D" size="8" width="25%" title="Ini. Visita" labelwidth="6" tmargin="4" disableedit="MAP_CERRADO=1" />
+         	<prop name="MAP_HORAVISITA" visible="1" type="TT" mask="Hh#:#Mm" newline="false" size="8" width="20%" title="" labelwidth="0" tmargin="4" disableedit="MAP_CERRADO=1" />
+         	<prop name="MAP_CLIENTE" visible="1" type="T" newline="false" locked="true" linkedto="IDCLIENTE" linkedfield="NOMBRE" size="40" width="40%" title="Cliente" labelwidth="8" tmargin="4" lmargin="2" disableedit="MAP_CERRADO=1" />
+            <prop name="MAP_BTCLIENTE" visible="1" type="B" newline="false" class="boton2" icon="bt-find-black.png" onchange="refresh" method="Executenode(buscarcliente)" title="" tmargin="3" lmargin="1" disableedit="MAP_CERRADO=1" />
+         	
+  		    <prop name="MAP_VERMAPA" visible="1" type="B" class="boton2" lmargin="1" tmargin="3" title="" img="bt-gps-black.png" labelwidth="0" method="Executenode(mapa)" fieldsize="0" onchange="refresh" newline="false" />          
+      		<prop group="1" frame="frm_datos_Cliente" name="MAP_MAPA" title=" " newline="false" type="Z" visible="0" class="boton2" viewmode="mapview" contents="MAPA" text-border="false" border="false" tmargin="3" bgcolor="#00000000" mask="2" img="bt-gps-black.png" imgsel="bt-gps-black.png" />
+      		<contents name="MAPA" src="Datos_Mapa" filter="t1.ID=##FLD_IDCLIENTE##" />
+
+			<prop name="FECHA_FIN" visible="1" locked="true" type="D" size="8" width="25%" title="Fin Visita" labelwidth="6" tmargin="2" disableedit="MAP_CERRADO=1" />
+         	<prop name="MAP_HORAFIN" visible="1" locked="true" type="TT" mask="Hh#:#Mm" newline="false" size="8" width="20%" title="" labelwidth="0" tmargin="2" disableedit="MAP_CERRADO=1" />
+			<prop name="MAP_TIPOMENSAJE" visible="1" type="T" newline="false" linkedto="IDTIPOMENSAJEAGENDA" linkedfield="DESCRIP" size="40" width="45%" title="Tipo" labelwidth="8" tmargin="2" lmargin="2" disableedit="MAP_CERRADO=1" />
+			<prop name="NOMBRE_VISITA" visible="1" type="T" size="8" width="45%" title="Nuevo Cli." labelwidth="6" tmargin="2" disableedit="MAP_CERRADO=1" />
+
+			<prop name="OBSERVACIONES" visible="1" type="T" size="400" width="45%" title="Observ" labelwidth="6" lines="4" fixed-lines="true" tmargin="2" disableedit="MAP_CERRADO=1" />
+         	<prop name="MAP_COMPETENCIA" visible="1" type="T" newline="false" linkedto="IDCOMPETENCIA" linkedfield="NOMBRE" size="40" width="45%" title="Competencia" labelwidth="8" tmargin="7" lmargin="2" disableedit="MAP_CERRADO=1" />
+		</frame>
+		<!-- ## Frame Lista adjuntos agenda ## -->
+        <frame name="frm_adjuntos_cliente" height="37%" width="100%" scroll="true">
+          <prop name="MAP_LBADJUNTOS" visible="1" type="TL" class="label2" width="10%" labelwidth="8" title="Adjuntos" />
+  		  <prop name="MAP_ADJUNTARFICHERO" visible="1" type="AT" title="Adjuntar Fichero" labelwidth="0" fieldsize="0" onchange="refresh" newline="false" width="15%" height="15%" />          
+  		  <prop name="MAP_ADJUNTARIMAGEN" visible="1" type="B" class="boton2" lmargin="2" title="Adjuntar Imagen" img="bt-camara-black.png" labelwidth="0" method="Executenode(fotografia)" fieldsize="0" onchange="refresh" newline="false" />          
+		  <prop name="AdjuntosAgenda_Contents" labelwidth="0" width="100%" height="90%" type="Z" class="z_contents" visible="1" contents="AdjuntosAgenda_Contents" />
+          <contents name="AdjuntosAgenda_Contents" src="AdjuntosAgenda_Contents" filter="t1.IDAGENDA=##FLD_ID##" />
+        </frame>      
+
+		<!-- ## Frame Barra botones Agenda ## -->
+        <frame name="frm_barrabotones" width="100%" height="10%" scroll="false" bgcolor="#fefefe,#bbbcbe" align="center" framebox="true" border-width="3">
+          <prop name="MAP_BT1" visible="1" type="B" class="botonmenu" icon="bt_back_black.png" onchange="refresh" method="Executenode(exit)" title="" disableedit="0=1" />
+          <prop name="MAP_BT2" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="bt_save_black.png" onchange="refresh" method="Executenode(save)" title="" disablevisible="MAP_CERRADO=1" />          
+          <prop name="MAP_BT3" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="bt-okbox-black.png" onchange="refresh" method="Executenode(fin)" title="" disablevisible="MAP_CERRADO=1" />          
+          <prop name="MAP_BUTTONSELECT" visible="0" type="N" />
+		</frame>
+		<!-- ## Frame barra estado ## -->
+        <frame name="frm_barraestado" width="100%" height="6%" scroll="false" bgcolor="#05264e" align="right" orientation="bottom">
+          <prop name="MAP_DATOSESTADO" visible="0" type="T" />
+          <prop name="MAP_LBESTADO" visible="1" type="TL" class="labelestado" title="##FLD_MAP_DATOSESTADO##" tmargin="2" />
+        </frame>
+     </group>
+<!-- ##### GRUPO 2 SELECION CLIENTE ##### -->
+     <group name="SeleccionCliente" id="2">
+        <!-- ## Cabecera seleccion Cliente ## -->
+        <frame name="frm_cabecera2" width="100%" height="7%" scroll="false" orientation="top" bgcolor="#094c9b,#05264e">
+          <prop name="MAP_ICON2" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" locked="true" />
+		  <prop name="MAP_CABECERA2" visible="1" type="TL" class="labelcab" title="##FLD_MAP_LABELCABECERA2##" />
+          <prop name="MAP_LABELCABECERA2" type="T" visible="0" />
+        </frame> 
+        <!-- ## Frame Filtro de clientes ## -->
+        <frame name="frm_datos_filtro_cliente" width="100%" height="20%" scroll="false">
+            <prop name="MAP_LBCLIENTESFILTRAR" visible="1" type="TL" class="label2" width="25%" title="Datos Filtro" tmargin="2" />
+         	<prop name="MAP_NOMBRECLIENTE" visible="1" type="T" size="40" width="35%" tooltip="Nombre" labelwidth="0" tmargin="2" lmargin="1" disableedit="MAP_CERRADO=1" />
+         	<prop name="MAP_CODIGOCLIENTE" visible="1" type="T" newline="false" size="40" width="20%" tooltip="Codigo" labelwidth="0" tmargin="2" lmargin="1" disableedit="MAP_CERRADO=1" />
+         	<prop name="MAP_POBLACIONCLIENTE" visible="1" type="T" newline="false" size="40" width="33%" tooltip="Poblacion" labelwidth="0" tmargin="2" lmargin="1" disableedit="MAP_CERRADO=1" />
+            <prop name="MAP_FILTRARCLIENTES" visible="1" type="B" class="botonmenu" newline="false" lmargin="1" tmargin="1" icon="bt-find-black.png" onchange="refresh" method="Executenode(filtrarclientes)" title="" disableedit="MAP_CERRADO=1" />          
+
+		</frame>
+		<!-- ## Frame Contents de clientes ## -->
+        <frame name="frm_listadoClienes" height="57%" width="100%">
+          <prop name="MAP_LBCLIENTESCONTENTS" visible="1" type="TL" class="label2" width="25%" title="Clientes" />
+		  <prop name="Clientes_Contents" labelwidth="0" width="100%" height="90%" type="Z" class="z_contents" visible="1" contents="Clientes_Contents" />
+          <contents name="Clientes_Contents" src="Clientes_Contents" filter="" />
+        </frame>      
+        <!-- ## Frame Barra Botones seleccion Cliente ## -->
+        <frame name="frm_barrabotones2" width="100%" height="10%" scroll="false" bgcolor="#fefefe,#bbbcbe" align="center" framebox="true" border-width="3">
+          <prop name="MAP_BTATRAS" visible="1" type="B" class="botonmenu" icon="bt_back_black.png" onchange="refresh" method="Executenode(vergrupo1)" title="" disableedit="0=1" />
+		</frame>
+		<!-- ## Frame Barra Estado seleccion Cliente ## -->
+        <frame name="frm_barraestado2" width="100%" height="6%" scroll="false" bgcolor="#05264e" align="right" orientation="bottom">
+          <prop name="MAP_DATOSESTADO2" visible="0" type="T" />
+          <prop name="MAP_LBESTADO2" visible="1" type="TL" class="labelestado" title="##FLD_MAP_DATOSESTADO##" tmargin="2" />
+		 
+        </frame>
+     </group>
+
+    <prop name="MAP_CERRADO" type="N" visible="0" />
+    <prop name="ID" type="N" visible="0" />
+	<prop name="ID_ERP" visible="0" type="N" size="8" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDUSUARIOORI" visible="0" type="N" size="8" />
+	<prop name="IDUSUARIODES" visible="0" type="N" size="8" />
+	<prop name="IDUSUARIO" visible="0" type="N" size="8" />
+	<prop name="IDCLIENTE" visible="0" type="N" size="8" mapcol="Clientes_Basic" mapfld="ID" />
+	<prop name="IDCOMPETENCIA" visible="0" type="N" size="8" mapcol="Competencia_Basic" mapfld="ID" />
+	<prop name="IDTIPOMENSAJEAGENDA" visible="0" type="N" size="8" mapcol="TiposMensajeAgenda_Basic" mapfld="ID" />
+	<prop name="FECHA_CREACION" visible="0" type="D" size="8" />
+	<prop name="XLATITUD" visible="0" type="T" size="15" />
+	<prop name="XLONGITUD" visible="0" type="T" size="15" />
+	<prop name="COMPETENCIA_SN" visible="0" type="N" size="8" /> 	
+
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" /> 
+	
+      <create>
+ 		<action name="setval" field="FECHA_CREACION" value="##NOW_TIME##" />   
+		<action name="setval" field="FECHA_VISITA" value="##NOW_TIME##" />  
+		<action name="setval" field="IDUSUARIO" value="##USERID##" /> 		
+		<action name="setval" field="IDEMPRESA" value="##ENTID##" /> 		
+		<action name="runscript">
+          <script language="VBScript">   
+                EditarAgenda 0
+          </script>
+        </action>
+      </create>	
+      <before-edit>		
+		<action name="runscript">
+          <script language="VBScript">   
+				EditarAgenda 1
+          </script>
+        </action>
+      </before-edit>	      
+      <onback show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		
+      		</script>
+        </action>
+      </onback>   
+      <buscarcliente show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		LB_ShowGroup 2
+      		</script>
+        </action>
+      </buscarcliente>        
+      <vergrupo1 show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">         
+          		LB_ShowGroup 1
+      		</script>
+        </action>
+      </vergrupo1>        
+      <mapa show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		LB_ShowForm "Mapas",this("IDCLIENTE")
+      		</script>
+        </action>
+      </mapa>  
+      <filtrarclientes show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		FiltrarContents "t1.COD like '%"+cstr(this("MAP_CODIGOCLIENTE"))+"%' and t1.NOMBRE like '%"+cstr(this("MAP_NOMBRECLIENTE"))+"%' and (select count(d.ID) from gen_direcciones d where d.IDRAZONSOCIAL=t1.IDRAZONSOCIAL AND d.POBLACION like '%"+cstr(this("MAP_POBLACIONCLIENTE"))+"%')&gt;0","Clientes_Contents"
+      		</script>
+        </action>
+      </filtrarclientes>       
+      
+      <exit show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		 	SalirAgenda
+      		</script>
+        </action>
+      </exit> 
+      <save show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+					SalvarAgenda
+      		</script>
+        </action>
+      </save>    
+      <fin show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+					FinalizarAgenda
+      		</script>
+        </action>
+      </fin> 
+      <fotografia show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+					ui.StartCamera "MAP_ADJUNTARFICHERO", "photo"
+      		</script>
+        </action>
+      </fotografia>       
+      <onchange>
+        <field name="MAP_ADJUNTARFICHERO">
+          <action name="runscript">
+            <script language="VBScript"> 
+                 if this("MAP_ADJUNTARFICHERO")&lt;&gt;"" then
+                 	NuevoAdjuntoAgenda
+                 End if
+      		</script>
+          </action>
+         </field>         
+	   </onchange>         
+</coll>

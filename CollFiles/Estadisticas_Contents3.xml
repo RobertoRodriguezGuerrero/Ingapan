@@ -1,0 +1,50 @@
+﻿<coll name="Estadisticas_Contents3" fontsize="10" title="Estadisticas_Basic"
+sql="SELECT t1.*,a.DESCRIP AS MAP_ARTICULO,a.GAUNITIP_UNI1 AS MAP_GAUNITIP_UNI1,a.GAUNITIP_UNI2 AS MAP_GAUNITIP_UNI2     FROM ##PREF##Estadisticas t1 inner join ##PREF##Articulos a ON a.ID=t1.IDARTICULO" objname="Estadisticas" updateobj="Estadisticas" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDARTICULO" visible="0" type="N" size="8" />
+	<prop name="IDCLIENTE" visible="0" type="N" size="8" />	
+	<prop name="IDRAZONSOCIAL" visible="0" type="N" size="8" />
+
+
+	<prop name="F_ALBARAN" visible="0" type="D" size="8" />
+	<prop name="GAUNITIP_UNI1" visible="0" type="T" size="4" />	
+	<prop name="GAUNITIP_UNI2" visible="0" type="T" size="4" />
+
+	<prop name="C_UNI1" visible="0" type="N2" size="4" />	
+	<prop name="I_NETOEMP" visible="0" type="N2" size="5" />
+	<prop name="I_LINEMP" visible="0" type="N2" size="30" />	
+	<prop name="PR_PRECIO" visible="0" type="N2" size="8" />
+
+
+	<prop name="N_ALBARAN" visible="7" type="T" size="5" width="10%" labelwidth="0" fontsize="10" />
+	<prop name="GGALBTIP_COD" visible="7" type="T" size="5" width="5%" labelwidth="0" fontsize="10" newline="false" />
+	<prop name="N_LIN" visible="7" type="T" size="30" width="5%" labelwidth="0" newline="false" fontsize="10" />
+	<prop name="MAP_ARTICULO" visible="7" type="T" size="4" width="60%" labelwidth="0" newline="false" fontsize="10" />	
+	<prop name="MAP_GAUNITIP_UNI2" visible="7" type="T" size="4" width="10%" labelwidth="0" newline="false" fontsize="10" />	
+	<prop name="C_UNI2" visible="7" type="N2" size="4" width="10%" labelwidth="0" newline="false" fontsize="10" />	
+
+
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />  
+  </group>
+        <selecteditem show-wait-dialog="false" refresh="false">
+        <action name="runscript">
+          <script language="VBScript">
+		           if this("MAP_SEL")=0 then
+		             this("MAP_SEL")=1
+		           else
+		              this("MAP_SEL")=0
+		           end if
+		        'Refresca el grid modificado.
+		        ui.RefreshContentSelectedRow "Estadisticas_Contents"
+		        
+		        'refreshcontentrow "nombreprop", nID    'refresca la fila especifica del content que le digas
+		   </script>
+        </action>
+      </selecteditem>    
+</coll>

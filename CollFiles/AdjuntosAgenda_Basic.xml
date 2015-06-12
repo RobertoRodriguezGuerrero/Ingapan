@@ -1,0 +1,18 @@
+﻿<coll name="AdjuntosAgenda_Basic" title="AdjuntosAgenda_Basic"
+sql="SELECT t1.ID,t1.PATH     FROM ##PREF##AdjuntosAgenda t1" objname="AdjuntosAgenda" updateobj="AdjuntosAgenda" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDAGENDA" visible="0" type="N" size="8" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDUSUARIO" visible="0" type="N" size="8" />
+    <prop name="FECHA" visible="0" type="D" size="8" /> 	
+	<prop name="PATH" visible="0" type="T" size="50" />
+	<prop name="TYPE" visible="0" type="N" size="8" />
+
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />      
+  </group>
+</coll>

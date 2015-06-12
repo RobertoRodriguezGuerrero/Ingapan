@@ -1,0 +1,21 @@
+﻿<coll name="LineasParte_Basic" title="LineasParte_Basic"
+sql="SELECT t1.ID     FROM ##PREF##LineasParte t1" objname="LineasParte" updateobj="LineasParte" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDPARTE" visible="0" type="N" size="8" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDCONCEPTO" visible="0" type="N" size="8" />	
+	<prop name="INV_FECHA" visible="0" type="D" size="8" /> 	
+	<prop name="INV_QUIEN" visible="0" type="T" size="50" />
+	<prop name="KM_SALIDA" visible="0" type="N" size="8" />
+	<prop name="KM_LLEGADA" visible="0" type="N" size="8" />	
+	<prop name="LOCALIDAD" visible="0" type="T" size="40" />	
+	<prop name="TARJETA" visible="0" type="T" size="1" />
+	<prop name="IMPORTE" visible="0" type="N2" size="4" />
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />      
+  </group>
+</coll>

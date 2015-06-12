@@ -1,0 +1,26 @@
+﻿<coll name="PedidosLin_Basic" title="PedidosLin_Basic"
+sql="SELECT t1.*    FROM ##PREF##PedidosLin t1" objname="PedidosLin" updateobj="PedidosLin" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDPEDIDO" visible="0" type="N" size="8" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDARTICULO" visible="0" type="N" size="8" />	
+	<prop name="N_LIN" visible="0" type="D" size="8" /> 	
+	<prop name="N_PEDIDO" visible="0" type="N" size="8" />
+	<prop name="TYPE" visible="0" type="T" size="8" />
+	<prop name="DESCRIP" visible="0" type="T" size="4000" />	
+	<prop name="GAUNITIP_UNI1" visible="0" type="T" size="4" />	
+	<prop name="GAUNITIP_UNI2" visible="0" type="T" size="4" />
+	<prop name="C_UNI1" visible="0" type="N4" size="4" />
+	<prop name="C_UNI2" visible="0" type="N4" size="4" />
+    
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />      
+  </group>
+  <create>		
+		<action name="setval" field="IDEMPRESA" value="##ENTID##" /> 
+  </create>		
+</coll>

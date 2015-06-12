@@ -1,0 +1,81 @@
+﻿<coll name="Lineas_Parte_Editar" title="LineasParte_Basic"
+sql="SELECT t1.*,t2.CONCEPTO AS MAP_CONCEPTO,CASE WHEN t1.TARJETA=1 then 'Tarjeta' else 'Efectivo' end AS MAP_TARJETA     FROM ##PREF##LineasParte t1      INNER JOIN ##PREF##ConceptosParte t2 ON t1.IDCONCEPTO=t2.ID" objname="LineasParte" updateobj="LineasParte" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+        <frame name="frm_cabecera" width="100%" height="7%" scroll="false" orientation="top" bgcolor="#094c9b,#05264e">
+         <prop name="MAP_ICON1" visible="1" type="B" width="5%" labelwidth="0" icon="icon.png" method="Executenode(menu0)" locked="true" />
+          <prop name="MAP_CABECERA" visible="1" type="TL" class="labelcab" title="INGAPAN Mobile CRM - Nueva linea parte" />
+          <prop name="MAP_LABELCABECERA" type="T" visible="0" />
+        </frame> 
+        <frame name="frm_datos" height="77%" width="100%">
+		    <prop name="ID" type="N" visible="0" />
+			<prop name="IDPARTE" visible="0" type="N" size="8" />
+			<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+			<prop name="IDCONCEPTO" visible="0" type="N" size="8" mapcol="ConceptosParte_Basic" mapfld="ID" onchange="refresh" />		
+			
+			<prop name="KM_SALIDA" visible="0" type="N" size="8" />
+			<prop name="KM_LLEGADA" visible="0" type="N" size="8" />	
+		    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+		    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+			<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+			<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+			<prop name="ITX_FXONEACT" visible="0" type="D" size="8" /> 
+            <prop name="MAP_LBLINEAPARTE" visible="1" type="TL" class="label2" width="25%" title="Datos Linea " tmargin="2" />
+			
+			<prop name="MAP_CONCEPTO" visible="7" type="T" size="40" width="95%" tmargin="4" onchange="refresh" title="Concepto" labelwidth="8" linkedto="IDCONCEPTO" linkedfield="CONCEPTO" />
+			<prop name="INV_QUIEN" visible="7" type="T" size="40" width="95%" disablevisible="MAP_GRUPO='' or MAP_GRUPO&lt;&gt;'INVITACION'" tmargin="2" title="Invitado" labelwidth="8" />
+			<prop name="MAP_GRUPO" visible="0" type="T" size="40" width="95%" tmargin="4" title="Concepto" labelwidth="8" linkedto="IDCONCEPTO" linkedfield="GRUPO" />
+			<prop name="INV_FECHA" visible="7" type="D" size="40" width="95%" tmargin="2" title="Fecha" labelwidth="8" />
+			<prop name="LOCALIDAD" visible="7" type="T" size="40" width="95%" tmargin="2" title="Localidad" labelwidth="8" />
+	        <prop name="MAP_IDTARJETA" visible="0" type="N" size="8" mapcol-values="Efectivo,Tarjeta" mapfld="ID" onchange="refresh255" />
+		    <prop name="MAP_TARJETA" visible="1" type="T" linkedto="MAP_IDTARJETA" linkedfield="DATA" size="40" width="45%" title="Tarjeta: " labelwidth="8" tmargin="2" />
+
+			<prop name="TARJETA" visible="0" type="N" />			
+			<prop name="IMPORTE" visible="7" type="N2" size="40" width="45%" tmargin="2" title="Importe" labelwidth="8" newline="false" />	
+		</frame>
+		<!-- ## Frame botones edicion## -->  
+        <frame name="frm_barrabotones" width="100%" height="10%" scroll="false" bgcolor="#fefefe,#bbbcbe" align="center" framebox="true" border-width="3">
+          <prop name="MAP_BT1" visible="1" type="B" class="botonmenu" icon="bt_back_black.png" onchange="refresh" method="Executenode(exit)" title="" />
+          <prop name="MAP_BT2" visible="1" type="B" class="botonmenu" newline="false" lmargin="2" icon="bt-okbox-black.png" onchange="refresh255" method="Executenode(salvar)" title="" />          
+
+		</frame>
+		<!-- ## Frame Bara Estado## -->  
+        <frame name="frm_barraestado" width="100%" height="6%" scroll="false" bgcolor="#05264e" align="right" orientation="bottom">
+          <prop name="MAP_DATOSESTADO" visible="0" type="T" />
+          <prop name="MAP_LBESTADO" visible="1" type="TL" class="labelestado" title="##FLD_MAP_DATOSESTADO##" tmargin="2" />
+        </frame>
+  </group>
+      <create>
+ 		<action name="setval" field="INV_FECHA" value="##NOW_TIME##" />     
+	
+		<action name="setval" field="IDEMPRESA" value="##ENTID##" /> 		
+		<action name="runscript">
+          <script language="VBScript">   
+				'Cargamos datos de barra de estado
+				this("MAP_DATOSESTADO")=CargarBarraEstado()				
+          </script>
+        </action>
+      </create>	
+      <exit show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+                  if LB_MsgYesNo ("Desea salir de la edicion de la linea de parte?") then
+	          			appdata.failwithmessage -11888,"##EXIT##"
+	          	  end if
+      		</script>
+        </action>
+      </exit>       
+      <onback show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		
+      		</script>
+        </action>
+      </onback>   
+      <salvar show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+          		  SalvarLineaParte
+      		</script>
+        </action>
+      </salvar>         
+</coll>

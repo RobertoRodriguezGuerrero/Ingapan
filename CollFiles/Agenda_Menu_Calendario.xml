@@ -1,0 +1,48 @@
+﻿<coll name="Agenda_Menu_Calendario" title="AgendaMenu"
+sql="SELECT t1.*,CASE WHEN FECHA_FIN is null then '#88bf1b' else '#f19e14' end as MAP_COLORVIEW,substr(time(t1.FECHA_VISITA),0,6) as MAP_HORAINI, CASE WHEN t1.FECHA_FIN is null THEN CAST(substr(time(t1.FECHA_VISITA),0,3)+1 AS CHAR)||substr(time(t1.FECHA_VISITA),3,3) WHEN substr(time(t1.FECHA_VISITA),0,3)=substr(time(t1.FECHA_FIN),0,3) THEN CAST(substr(time(t1.FECHA_VISITA),0,3)+1 AS CHAR)||substr(time(t1.FECHA_VISITA),3,3) ELSE substr(time(t1.FECHA_FIN),0,6) END AS MAP_HORAFIN      FROM ##PREF##Agenda t1" objname="Agenda" updateobj="Agenda" progid="ASData.CASBasicDataObj" filter="(t1.ITX_BAJA=0 or t1.ITX_BAJA is null)" sort="" show-toolbar="false" viewmode="calendar" check-owner="false" dependent="false">
+      <group name="General" id="1" />
+      <prop group="1" name="FECHA_VISITA" datefrom="true" dateto="true" type="D" visible="7" title="Direccion" fieldsize="14" size="150" labelbox="false" forecolor="#000080" labelwidth="6" text-border="false" text-border-bottom="false" text-border-left="false" text-border-right="false" text-border-top="false" />
+      <prop group="1" name="MAP_HORAINI" type="T" timefrom="true" visible="7" title="Horario" fieldsize="14" size="30" labelbox="false" forecolor="#000080" labelwidth="6" text-border="false" text-border-bottom="false" text-border-left="false" text-border-right="false" text-border-top="false" />
+      <prop group="1" name="MAP_HORAFIN" type="T" timeto="true" visible="7" title="Horario" fieldsize="14" size="30" labelbox="false" forecolor="#000080" labelwidth="6" text-border="false" text-border-bottom="false" text-border-left="false" text-border-right="false" text-border-top="false" />
+      <prop group="1" name="MAP_DURATION" type="N" visible="7" title="Horario" fieldsize="14" size="30" labelbox="false" forecolor="#000080" labelwidth="6" text-border="false" text-border-bottom="false" text-border-left="false" text-border-right="false" text-border-top="false" />
+      <prop group="1" name="MAP_COLORVIEW" type="T" visible="0" fieldsize="14" size="30" colorview="true" />
+  
+    <ondateselected refresh="true" show-wait-dialog="false" refresh-owner="MAP_FECHACALENDAR,MAP_TITLE_NAMES_MES">
+        <action name="runscript">
+          <param name="DATEVALUE" />
+          <param name="TIMEVALUE" />
+          <param name="EVENTVALUE" />
+          <script language="vbscript">
+            if DATEVALUE is null then
+              DATEVALUE = thisDataColl.Variables("DATECALENDAR")
+            end if          
+          	thisDataColl.OwnerObject("MAP_FECHACALENDAR")= DATEVALUE
+          	thisDataColl.OwnerObject("MAP_TITLE_NAMES_MES")=ucase(cstr(monthname(DATEVALUE))) 
+			thisDataColl.OwnerObject("MAP_TITLE_NAMES_ANO")=ucase(cstr(year(DATEVALUE)))           	
+          </script>
+        </action>
+      </ondateselected>
+      <onpageselected refresh="true" show-wait-dialog="false" refresh-owner=",MAP_TITLE_NAMES_MES">
+        <action name="runscript">
+          <param name="DATEVALUE" />
+          <param name="CURRENT" />
+          <param name="DATEFROM" />
+          <param name="TOTALDAYS" />
+          <script language="vbscript">
+              if DATEFROM is null then
+                DATEFROM = thisDataColl.Variables("DATEFROM")
+              end if         
+				if appdata.CurrentEnterprise.variables("PLATFORM")="IOS" then
+	                thisDataColl.OwnerObject("MAP_FECHACALENDAR")= DATEFROM
+	               	thisDataColl.OwnerObject("MAP_TITLE_NAMES_MES")=ucase(cstr(monthname(DATEFROM)))   
+	               	thisDataColl.OwnerObject("MAP_TITLE_NAMES_ANO")=ucase(cstr(year(DATEFROM)))        
+				else
+	                thisDataColl.OwnerObject("MAP_FECHACALENDAR")= DATEVALUE
+	               	thisDataColl.OwnerObject("MAP_TITLE_NAMES_MES")=ucase(cstr(monthname(DATEVALUE)))   
+	               	thisDataColl.OwnerObject("MAP_TITLE_NAMES_ANO")=ucase(cstr(year(DATEVALUE)))        
+				end if				
+            </script>
+        </action>
+      </onpageselected>
+  
+    </coll>

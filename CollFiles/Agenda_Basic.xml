@@ -1,0 +1,31 @@
+﻿<coll name="Agenda_Basic" title="Agenda_Basic"
+sql="SELECT t1.ID     FROM ##PREF##Agenda t1" objname="Agenda" updateobj="Agenda" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+
+	<prop name="ID_ERP" visible="0" type="N" size="8" />
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDUSUARIOORI" visible="0" type="N" size="8" />
+	<prop name="IDUSUARIODES" visible="0" type="N" size="8" />
+	<prop name="IDUSUARIO" visible="0" type="N" size="8" />
+	<prop name="IDCLIENTE" visible="0" type="N" size="8" />
+	<prop name="IDCOMPETENCIA" visible="0" type="N" size="8" />
+	<prop name="IDTIPOMENSAJEAGENDA" visible="0" type="N" size="8" />
+
+	<prop name="FECHA_CREACION" visible="0" type="D" size="8" />
+	<prop name="FECHA_VISITA" visible="0" type="D" size="8" /> 	
+	<prop name="TIEMPO_VISITA" visible="0" type="D" size="8" />
+	<prop name="XLATITUD" visible="0" type="T" size="15" />
+	<prop name="XLONGITUD" visible="0" type="T" size="15" />
+	<prop name="OBSERVACIONES" visible="0" type="T" size="400" />
+	<prop name="QL_NOMFIC" visible="0" type="T" size="15" />
+	<prop name="COMPETENCIA_SN" visible="0" type="N" size="8" /> 	
+	<prop name="NOMBRE_VISITA" visible="0" type="D" size="40" />
+
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />    
+  </group>
+</coll>

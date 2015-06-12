@@ -1,0 +1,21 @@
+﻿<coll name="CondicionesCom_Basic" title="CondicionesCom_Basic"
+sql="SELECT t1.ID     FROM ##PREF##CondicionesCom t1" objname="CondicionesCom" updateobj="CondicionesCom" progid="ASData.CASBasicDataObj" filter="" sort="">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+	<prop name="IDCLIENTE" visible="0" type="N" size="8" />	
+	<prop name="IDEMPRESA" visible="0" type="N" size="8" />
+	<prop name="IDARTICULO" visible="0" type="N" size="8" />
+    <prop name="F_DESDE" visible="0" type="D" size="8" /> 	
+	<prop name="F_HASTA" visible="0" type="D" size="8" /> 	
+	<prop name="GRUPO" visible="0" type="T" size="20" /> 	
+	<prop name="DTO" visible="0" type="N2" size="8" />
+	<prop name="ESTADO" visible="0" type="T" size="2" />
+	<prop name="GGDTOTIP" visible="0" type="T" size="20" />
+
+    <prop name="ITX_ERP" visible="0" type="N" size="8" />
+    <prop name="ITX_XONE" visible="0" type="N" size="8" />
+	<prop name="ITX_FERPACT" visible="0" type="D" size="8" />
+	<prop name="ITX_BAJA" visible="0" type="N" size="8" />
+	<prop name="ITX_FXONEACT" visible="0" type="D" size="8" />  
+  </group>
+</coll>
